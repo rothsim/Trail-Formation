@@ -1,11 +1,12 @@
-# MATLAB HS12 – Research Plan (Template)
-(text between brackets to be removed)
+# MATLAB HS12 – Research Plan
 
-> * Group Name: (be creative!)
-> * Group participants names: (alphabetically sorted by last name)
+> * Group Name: Slimy
+> * Group participants names: Böttcher Lucas, Roth Simon, Schär Gabriela
 > * Project Title: (can be changed)
 
 ## General Introduction
+
+Biologically inspired model of the Swiss railroad network depending on population growth.
 
 (States your motivation clearly: why is it important / interesting to solve this problem?)
 (Add real-world examples, if any)
@@ -27,7 +28,9 @@
 (What are the answers to the above questions that you expect to find before starting your research?)
 
 
-## References 
+## References
+
+http://www.sciencemag.org/content/327/5964/439.full
 
 (Add the bibliographic references you intend to use)
 (Explain possible extension to the above models)
