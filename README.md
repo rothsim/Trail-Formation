@@ -2,15 +2,11 @@
 
 > * Group Name: Slimy
 > * Group participants names: Böttcher Lucas, Roth Simon, Schär Gabriela
-> * Project Title: (can be changed)
+> * Project Title: Trail formation with Physarum polycephalum
 
 ## General Introduction
 
-Biologically inspired model of the Swiss railroad network depending on population growth.
-
-(States your motivation clearly: why is it important / interesting to solve this problem?)
-(Add real-world examples, if any)
-(Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
+Biologically inspired model of the Swiss railroad network depending on population growth. By using a biological (based on Physarum polycephalum) model, we want to simulate future scenarios of the Swiss railroad network. Probably a problem in future would be, that in fact of the urbanisation more people will use the public transport system. So we think it is necessary to simulate the main transport lines, to see where the system should be improved.
 
 ## The Model
 
