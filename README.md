@@ -30,7 +30,8 @@ Biologically inspired model of the Swiss railroad network depending on populatio
 
 ## References
 
-http://www.sciencemag.org/content/327/5964/439.full
+* http://www.sciencemag.org/content/327/5964/439.full
+* http://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/28042/1/PASMA363-1.pdf
 
 (Add the bibliographic references you intend to use)
 (Explain possible extension to the above models)
@@ -43,5 +44,7 @@ http://www.sciencemag.org/content/327/5964/439.full
 
 
 ## Other
+
+* Simulation surface - https://geodata.ethz.ch/geovite/
 
 (mention datasets you are going to use)
