@@ -6,7 +6,7 @@
 
 ## General Introduction
 
-Biologically inspired model of the Swiss railroad network depending on population growth. By using a biological (based on Physarum polycephalum) model, we want to simulate future scenarios of the Swiss railroad network. Probably a problem in future would be, that in fact of the urbanisation more people will use the public transport system. So we think it is necessary to simulate the main transport lines, to see where the system should be improved.
+Generating a biologically inspired model of the Swiss railroad network depending on population growth. By using a biological (based on Physarum polycephalum) model, we want to simulate future scenarios of the Swiss railroad network. Probably a problem in future would be, that in fact of the population growth more people will use the public transport system. So we think it is necessary to simulate the main transport lines, to see where the system should be improved.
 
 ## The Model
  
@@ -14,12 +14,12 @@ The mathematical model is based on (2). The urban areas (food sources) are the i
 
 ## Fundamental Questions
 
-* Is the simulated railroad network a good approximation of real network?
-* Are there unefficient junctions and are new junctions needed for the future?
+* Is the simulated railroad network a good approximation of the real network?
+* Are there inefficient junctions and are new junctions needed for the future?
 
 ## Expected Results
 
-Because Switzerland has a special topography and so the model is maybe not fully adaptable. In general we assume that the junctions and their capacity show more or less the future network.
+Because Switzerland has a special topography the model is maybe not fully adaptable. In general we assume that the junctions and their capacity show more or less the future network.
 
 
 ## References
@@ -30,7 +30,7 @@ Because Switzerland has a special topography and so the model is maybe not fully
 
 ## Research Methods
 
-Cellular grid (matrix based on Swiss topography - GIS) with predefined rules from hydro dynamics, Continuous Modeling
+Cellular grid (matrix based on Swiss topography - GIS) with predefined rules from hydro dynamics, continuous modeling
 
 
 ## Other
