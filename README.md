@@ -26,6 +26,7 @@ Because Switzerland has a special topography the model is maybe not fully adapta
 
 * http://www.sciencemag.org/content/327/5964/439.full (1)
 * http://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/28042/1/PASMA363-1.pdf (2)
+* http://www.youtube.com/watch?v=b5Z_BWu-daA (Hagen Poiseuille equation)
 
 
 ## Research Methods
