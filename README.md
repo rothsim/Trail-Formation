@@ -21,7 +21,7 @@ As mentioned in (2), the flux prefers junctions with high efficiency (e.g. short
 
 Comment:
 
-Question (a) should be proved with data from the swiss railroad (e.g. SBB) and some main nodes (e.g. Zurich/Bern/Geneva. We see this part as our main task. If there is time after implementation and testing the software with a GIS (see Other) matrix, we want to do further tasks like (b). The efficiency is measurable, how descriped in (1). So the efficiency of each network is related to the total length, the average distance between nodes compared to the minimal spanning tree.
+Question (a) should be proved with data from the swiss railroad (e.g. SBB) and some main nodes (e.g. Zurich/Bern/Geneva. By comparing the simulated matrix with the real trail matrix, we see the influence of the parameters of simulation. We see this part as our main task. If there is time after implementation and testing the software with a GIS (see Other) matrix, we want to do further tasks like (b). The efficiency is measurable, how descriped in (1). So the efficiency of each network is related to the total length, the average distance between nodes compared to the minimal spanning tree.
 
 ## Expected Results
 
