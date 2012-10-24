@@ -12,6 +12,8 @@ Generating a biologically inspired model of the Swiss railroad network depending
  
 The mathematical model is based on (2). The urban areas (food sources) are the independent variables. By using theorems from hydro dynamics there exists three types of dependent variables for each node: conductivity, length and pressure.
 
+[As in (2) mentioned, the flux prefers junctions with high efficiency (e.g. shortes connection). Because the flux in the system is constant, the junctions with high efficiency grow (getting thicker and more flux goes through), wheter the junctions with low efficiency shrink and disappear.]
+
 ## Fundamental Questions
 
 * Is the simulated railroad network a good approximation of the real network?
