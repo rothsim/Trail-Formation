@@ -38,4 +38,4 @@ Cellular grid (matrix based on Swiss topography - GIS) with predefined rules fro
 
 ## Other
 
-* Simulation surface with GIS - https://geodata.ethz.ch/geovite/
+* Simulation surface with GIS - http://www.swisstopo.admin.ch
