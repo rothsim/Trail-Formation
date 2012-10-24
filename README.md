@@ -38,7 +38,7 @@ Because Switzerland has a special topography the model is maybe not fully adapta
 
 ## Research Methods
 
-Cellular grid (matrix based on Swiss topography - GIS) with predefined rules from hydro dynamics, continuous modeling
+Cellular grid (matrix based on Swiss topography - GIS) with predefined rules from hydro dynamics, continuous modelling
 
 
 ## Other
