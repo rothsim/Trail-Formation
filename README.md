@@ -12,12 +12,16 @@ Generating a biologically inspired model of the Swiss railroad network depending
  
 The mathematical model is based on (2). The urban areas (food sources) are the independent variables. By using theorems from hydro dynamics there exists three types of dependent variables for each node: conductivity, length and pressure.
 
-[As in (2) mentioned, the flux prefers junctions with high efficiency (e.g. shortes connection). Because the flux in the system is constant, the junctions with high efficiency grow (getting thicker and more flux goes through), wheter the junctions with low efficiency shrink and disappear.]
+As mentioned in (2), the flux prefers junctions with high efficiency (i.e. short connections). Because the flux in the system is constant, the junctions with high efficiency grow (getting thicker and more flux goes through), while the junctions with low efficiency shrink and disappear.
 
 ## Fundamental Questions
 
-* Is the simulated railroad network a good approximation of the real network?
-* Are there inefficient junctions and are new junctions needed for the future?
+* (a) Is the simulated railroad network a good approximation of the real network?
+* (b) Are there inefficient junctions and are new junctions needed for the future?
+
+Comment:
+
+Question (a) should be proved with data from the swiss railroad (e.g. SBB). We see this part as our main task. If there is time after implementation and testing the software with a GIS (see Other) matrix, we want to do further tasks like (b). The efficiency is measurable, how descriped in (1). So the efficiency of each network is related to the total length, the average distance between nodes compared to the minimal spanning tree.
 
 ## Expected Results
 
