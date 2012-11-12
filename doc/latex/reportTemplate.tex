@@ -2,6 +2,7 @@
 \usepackage{geometry}                
 \geometry{letterpaper}                   
 
+\usepackage[english]{babel}	
 \usepackage{graphicx}
 \usepackage{german}
 \usepackage[utf8]{inputenc} 
@@ -11,6 +12,7 @@
 \usepackage{epstopdf}
 \usepackage{natbib}
 \usepackage{amssymb, amsmath}
+
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 %\title{Title}
@@ -45,7 +47,7 @@
 
 \begin{tabular}{@{}p{6cm}@{}p{6cm}@{}@{}p{6cm}@{}}
 \begin{minipage}{6cm}
- \large Gabriela Schär
+ \large Lucas Böttcher
 
 \end{minipage}
 & 
@@ -55,7 +57,7 @@
 \end{minipage}
 &
 \begin{minipage}{6cm}
-\large Lucas Böttcher
+\large Gabriela Schär
 
 \end{minipage}
 \end{tabular}
@@ -82,11 +84,21 @@
 
 \section{Abstract}
 
+Generating a biologically inspired model of the Swiss railroad network depending on population growth. By using a biological (based on Physarum polycephalum) model, we want to simulate future scenarios of the Swiss railroad network. Probably a problem in future would be, that in fact of the population growth more people will use the public transport system. So we think it is necessary to simulate the main transport lines, to see where the system should be improved.
+
+
+
+
 \section{Individual contributions}
 
 \section{Introduction and Motivations}
 
 \section{Description of the Model}
+
+The mathematical model is based on \cite{network_model}. The urban areas (food sources) are the independent variables. By using theorems from hydro dynamics there exists three types of dependent variables for each node: conductivity, length and pressure.
+
+As mentioned in \cite{network_model}, the flux prefers junctions with high efficiency (e.g. short connections). Because the flux in the system is constant, the junctions with high efficiency grow (getting thicker and more flux goes through), while the junctions with low efficiency shrink and disappear.
+
 
 \section{Implementation}
 
@@ -95,6 +107,9 @@
 \section{Summary and Outlook}
 
 \section{References}
+
+\bibliographystyle{plain}
+\bibliography{matlabbib}
 
 
 
