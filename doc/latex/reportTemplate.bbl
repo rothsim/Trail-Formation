@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{bfs}
+http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/data/01.html.
+
+\bibitem{gis_data}
+http://www.geodata.ethz.ch.
+
 \bibitem{network_model}
 Atsushi Tero, Ryo Kobayashi, and Toshiyuki Nakagaki.
 \newblock Physarum solver: A biologically inspired method of road-network
