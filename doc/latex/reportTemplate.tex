@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{scrartcl}
 \usepackage{geometry}                
 \geometry{letterpaper}                   
 
@@ -14,12 +14,17 @@
 \usepackage{amssymb, amsmath}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{booktabs}
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 %\title{Title}
 %\author{Name 1, Name 2}
 %\date{date} 
+
+\renewcommand*{\capfont}{\normalfont}
+\renewcommand*{\caplabelfont}{\sffamily\bfseries}
+
 
 \begin{document}
 
@@ -86,8 +91,7 @@
 
 \section{Abstract}
 
-As most of the countries, Switzerland is growing. Cities are getting more inhabitants, growing together or arising new. With more people living in the cities and generally in Switzerland, more people will use the public transport system and the railroad network has to grow and develop. In this case, the main goal of this project is to simulate the Swiss railroad network depending on population growth to see where the systems should be improved.~\\
-The network is simulated like a biological model, based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores it's environment with a relatively continous foraging margin. It's forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. And this principle is adapted to the main transport lines in Switzerland.
+Like most countries in the world, Switzerland is growing. Cities are getting more inhabitants, are growing together or are arising new. This growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores it's environment with a relatively continous foraging margin. It's forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. It can be shown...
 
  
 
@@ -97,25 +101,18 @@ The network is simulated like a biological model, based on Physarum polycephalum
 
 
 \section{Introduction and Motivations}
-Like a lot of other students we also use the public transport system almost everyday. Everyday thousands of commuters use the Swiss railroad network to reach their workspace or the university. And everyday the same railroad is used. But is it necessary, that the tracks are connecting the different cities exactly this way or are other connections possible?~\\
-~\\
-We assume, that the railroad network is developed in a way that the connection between cities are most efficient. Certain biological organism connect their food sources in a similar way. In this project we try to let a biological organism simulate its own efficient connections between the cities. This leads us to the following questions:
+Everyday thousands of commuters use the Swiss rail network to reach their workspace or the university, mainly the same railroad is used. But is the actual situation of the network the most efficient or have different connection between cities a higher performance?
+
+We assume, that the rail network is developed in a way that the connections between cities are most efficient. Certain biological organism connect their food sources in a similar way. In this project we simulate a biological organism creating its own efficient connections between the cities. This approach leads to the following main questions:
 
 \begin{enumerate}
-	\item Is the simulated railroad network a good approximation of the real network?
-	\item Are there inefficient junctions and are new junctions needed for the future?
+	\item Is the biological model a good approximation to simulate the network compared to reality?
+	\item Are there any new built or destroyed connections in the network because of future population growth?
 \end{enumerate}
 
-To answer these questions, we compare the results from the simulation with the Swiss railroad network. For this comparison we used geodate from geodata.ethz.ch\,\cite{gis_data}. The data are prossesing with \textit{Arcgis 10.1} to get the main matrix for the simulation. Therefor we distinguish between \textit{Ghostland}, \textit{Freeland} and \textit{city}. Ghostland are the cells where the slime mold isn't allowed to be (foreign countries, lakes), Freeland are the cells where the slime mold can grow free and City represent food sources.
+To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geodata from geodata.ethz.ch~\cite{gis_data} are used. This data are processed with \textit{Arcgis 10.1} to get the basis for the simulation.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{map_2500_cities.jpg}
-	\caption{Rastardata from Arcgis with a gridsize of 2500m - white: Ghostland, green: Freeland, brown: City}
-	\label{fig:map_cities}
-\end{figure}
-
-The cities are choosen by the numbers of inhabitants in 2011 and if there is a railaway station. Additional are some cities with less than 10000 inhabitants but with an importance for the railroad network today. \textit{Bilanz der ständigen Wohnbevölkerung (Total) nach Bezirken und Gemeinden}\cite{bfs}. ~\\
+Cities are choosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railaway station. Additional to these some cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
 ~\\
 To answer the second question, ....~\\
 ~\\
@@ -186,6 +183,37 @@ The network Poisson equation for the pressure is derived from the equations (\re
 All $p_i$'s can be determined by solving the equation system (\ref{eq:6}) wenn setting $p_2=0$ as a basic pressure level. With this also each $Q_{ij}$ is obtained. They're definend bay the $D_{ij}$'s and $L_{ij}$'s  at each time step. Conductivity is closely related to the thickness of the junctions and so when a conductivity of a junction is zero, it disappears.
 
 \section{Implementation}
+
+To get the basis matrix for the simulation, Swiss geodata\,\cite{gis_data} are processed with \textit{Arcgis 10.1}. Therefor the rasterdata are distinguished in different classes as in Table\, \ref{tab:class} are described.
+
+\begin{table}[H]
+	\centering
+	\caption{classes of data}
+		\begin{tabular}{lll}
+		\toprule
+		Indentification & Class & Description \\
+		\midrule
+		0 & Ghostland & Cells in which the slime mold isn't allowed to be\\
+		& 		& (foreign coutries, lakes)\\
+		1 & Freeland & Cells in which the slime mold is allowed to grow\\
+		2 & Junction & Cells in which the slime mold is located, \\
+		& & processed in MATLAB\\
+		3 & City & Cells which represents food sources\\
+		\bottomrule
+	\end{tabular}
+\label{tab:class}
+\end{table}
+
+All the geodata are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can't ride. The slope is in this case also neglected. So the mountains aren't considerated in the simulation. Then all the choosen cities are imported to \textit{Arcgis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disapear when the vectordata gets converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{map_2500_cities.jpg}
+	\caption{Rastardata from Arcgis with a gridsize of 2500m - white: Ghostland, green: Freeland, brown: City}
+	\label{fig:map_cities}
+\end{figure}
 
 \section{Simulation Results and Discussion}
 
