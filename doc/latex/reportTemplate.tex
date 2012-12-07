@@ -91,46 +91,65 @@
 
 \section{Abstract}
 
-Like most countries in the world, Switzerland is growing. Cities are getting more inhabitants, are growing together or are arising new. This growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores it's environment with a relatively continous foraging margin. It's forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. It can be shown...
-
- 
+The process of continuous urbanization is noticeable in Switzerland like in the most other countries.\footnote[1]{see the autumn sunday lectures at ETH Science City (Die Stadt der Zukunft - die Zukunft der Stadt)} Besides the benefits of combining educational, medical, cultural and industrial centers in a small are, there are also some problems arising. The cities are growing, whereupon this growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores its environment with a relatively continuous foraging margin. It is forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. 
 
 
 \section{Individual contributions}
-
+\begin{itemize}
+  \item Lucas Böttcher
+  \item Simon Roth
+  \item Gabriela Schär
+\end{itemize}
 
 
 \section{Introduction and Motivations}
-Everyday thousands of commuters use the Swiss rail network to reach their workspace or the university, mainly the same railroad is used. But is the actual situation of the network the most efficient or have different connection between cities a higher performance?
-
-We assume, that the rail network is developed in a way that the connections between cities are most efficient. Certain biological organism connect their food sources in a similar way. In this project we simulate a biological organism creating its own efficient connections between the cities. This approach leads to the following main questions:
+Everyday thousands of commuters use the Swiss rail network to reach their workplace, school or university, mainly the same railroad is used. Seeing these facts we are going to ask, whether the actual situation of the network is the most efficient one. And related to that question, whether different connections between cities have maybe a higher performance.\\\\
+We assume, that the rail network is developed in a way that the connections between cities are the most efficient. Certain biological organisms connect their food sources in a similar way. In this project we simulate a biological organism creating its own efficient connections between the cities. This approach leads to the following main questions:
 
 \begin{enumerate}
 	\item Is the biological model a good approximation to simulate the network compared to reality?
-	\item Are there any new built or destroyed connections in the network because of future population growth?
+	\item Are there any new built or destroyed connections in the network because of the future population growth?
 \end{enumerate}
 
 To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geodata from geodata.ethz.ch~\cite{gis_data} are used. This data are processed with \textit{Arcgis 10.1} to get the basis for the simulation.
 
 Cities are choosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railaway station. Additional to these some cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
 ~\\
-To answer the second question, ....~\\
+To answer the second question, we are going to manipulate parameters in Physarum network, like described  in 5.\\
 ~\\
-We expect that the most efficient network created by the simulation is a good approximation of the actual Swiss railroad network. We also expect that the network won't change even when the population is growing because a network changes the most at the beginning of developing. And the Swiss railroad network reaches the end of developement already.
+We expect that the most efficient network created by the simulation is a good approximation of the actual Swiss railroad network. We also expect that the network won't change even when the population is growing because a network changes the most at the beginning of developing. And the Swiss railroad network reaches the end of development already.
 
 
 
 
 \section{Description of the Model}
 
-The model is inspired of the physarum polycephalum and the way it's searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which don't connect to a food sources are shrinking and tend to disapear because there is no flux available. Experiments showed two empirical rules. 1) Tubes with no connection to a source disappear and 2) if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
+The model is inspired of the physarum polycephalum and the way this single-celled fungus searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which don't connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
 ~\\
-The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$.
-
+The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{schema.jpg}
-	\caption{Concept of the mathematical model. Squares represent ordinary nodes, circles 			represent food sources, each line represent a junction.}
+	\includegraphics[width=10cm]{figures/figure2}
+	\caption{Illustration of the Hagen-Poiseuille law for a circular tube, which connects the single nodes in our model.}
+	\label{fig:fluidd}
+\end{figure}
+
+\begin{equation}
+u(z)=-\frac{1}{4\eta}\frac{dp}{dz}(R^2-\rho^2)
+\end{equation}
+, where R is the radius of the cylinder and $\eta$ the viscosity. Now we can integrate that expression over a circle, and normalize to get a mean velocity:
+\begin{equation}
+\overline{u(z)}=-\frac{1}{4\pi\eta R^2}\frac{dp}{dz}\int_{0}^{2\pi}\int_{0}^{R}{(R^2-\rho^2)}\rho d\rho d\phi=-\frac{1}{8\eta}\frac{dp}{dz}R^2
+\end{equation}
+We can assume that the pressure gradient is uniform and express the mean velocity by the flux divided by its cross section:
+\begin{equation}
+Q_{ij}=\frac{D_{ij}}{L_{ij}}\Delta p_{ij}
+\end{equation}
+, where $D_{ij}=-\frac{\pi R^4}{8\eta}$ is the conductance. So we see that the Hagen-Poiseuille law is related to Ohms law, where we have a similar expression.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/figure1}
+	\caption{\textbf{a)} Concept of the mathematical model with a source and sink node. The distance between the given nodes is a constant $d$. The centered node is not reachable. \textbf{b)} Any square represents a node with red sources, yellow transport junctions (cyan is not used) and not reachable blue terrain.}
 	\label{fig:schema}
 \end{figure}
 
@@ -210,7 +229,7 @@ All the geodata are in vector format. So all lakes and the foreign countries can
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{map_2500_cities.jpg}
+	\includegraphics[width=0.7\textwidth]{figures/map_2500_cities}
 	\caption{Rastardata from Arcgis with a gridsize of 2500m - white: Ghostland, green: Freeland, brown: City}
 	\label{fig:map_cities}
 \end{figure}
