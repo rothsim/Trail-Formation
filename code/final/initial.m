@@ -1,4 +1,4 @@
-function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, export, geofile )
+function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, export, geofile, popfile, growfile )
 %INITIAL prepars all the input data for the simulation.
 %   All parameters and constants and all input data are converted and
 %   prepared to run the simulation.
@@ -9,7 +9,7 @@ function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, expor
 
 
 	%load input data
-	geo = initial_load( backup, import, geofile, simpath );
+	[ geo, pop, grow ] = initial_load( backup, import, geofile, popfile, growfile, simpath );
 
 
 	% get dimension of geodata
@@ -41,8 +41,8 @@ function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, expor
 	if ( backup ~= 1 )
 
 		save( [ simpath, 'geodata' ], 'geo' );
-		%save( [ simpath, 'population' ], 'pop' );
-		%save( [ simpath, 'growth' ], 'grow' );
+		save( [ simpath, 'population' ], 'pop' );
+		save( [ simpath, 'growth' ], 'grow' );
 
 	end
 
@@ -68,8 +68,10 @@ function [ simpath ] = initial_structure( backup, simfolder, export )
 		%get unique foldername
 		foldername = int2str( now*10^5 );
 
-		%create folder
+		%create folders
 		mkdir( [ export, foldername ] );
+		mkdir( [ export, foldername, '/conductivity' ] );
+		mkdir( [ export, foldername, '/path' ] );
 
 		%folder path
 		simpath = [ export, foldername, '/' ];
@@ -81,20 +83,20 @@ end
 
 
 %% load input data
-function [ geo ] = initial_load( backup, import, geofile, simpath )
+function [ geo, pop, grow ] = initial_load( backup, import, geofile, popfile, growfile, simpath )
 
 
 	if ( backup == 1 )
 
 		load( [ simpath, 'geodata.mat' ] );
-		%load( [ simpath, 'population.mat' ] );
-		%load( [ simpath, 'growth.mat' ] );
+		load( [ simpath, 'population.mat' ] );
+		load( [ simpath, 'growth.mat' ] );
 
 	else
 
 		geo  = load( [ import , geofile ] );
-		%pop  = load( [ import, popfile ] );
-		%grow = load( [ import, growfile ] );
+		pop  = load( [ import, popfile ] );
+		grow = load( [ import, growfile ] );
 
 	end
 
@@ -111,7 +113,7 @@ function [ D, path, t0 ] = initial_dpath( dt, backup, D0, simpath, geo, Y, X, ne
 	if ( backup == 1 )
 
 		%get all saved conductivities
-		backupD = dir( [ simpath, '*conductivity_*.mat' ] );
+		backupD = dir( [ simpath, 'conductivity_*.mat' ] );
 		
 		%get last conductivity
 		lastD = backupD( length( backupD ) ).name;

@@ -36,12 +36,12 @@ export = 'output/';		%folder to save the simulation results
 % input data
 %--------------------------------------------------------------------------
 
-geofile  = 'geodata.txt';	%coded geodata
-%popfile  = 'population.txt';	%population
-%growfile = 'growth.txt';		%population growth
+geofile  = 'geodata.txt';		%coded geodata
+popfile  = 'population.txt';	%population
+growfile = 'growth.txt';		%population growth
 
 
 % initialize simulation
 %--------------------------------------------------------------------------
 
-initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, export, geofile );
+initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, export, geofile, popfile, growfile );

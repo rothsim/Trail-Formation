@@ -167,8 +167,8 @@ function [] = loop_export( dt, simpath, D, path, oldpath, t, newpath )
 
 	if ( newpath ~= oldpath )
 
-		draw( 'white', path , 'jet', simpath, [ 'path_', num2str( 1/dt*t ) ] );
-		save( [ simpath, 'conductivity_', num2str( 1/dt*t ) ], 'D' );
+		draw( 'white', path , 'jet', [ simpath, 'path/' ], [ 'path_', num2str( 1/dt*t ) ] );
+		save( [ simpath, 'conductivity/', 'conductivity_', num2str( 1/dt*t ) ], 'D' );
 
 	end
 
