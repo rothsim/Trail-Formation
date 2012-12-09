@@ -1,4 +1,4 @@
-function [] = loop( I0, g, a0, a, T, dt, geo, simpath, Y, X, nodes, neigh, D, path, t0, flux )
+function [] = loop( g, a0, a, T, dt, geo, simpath, Y, X, nodes, I, neigh, D, path, t0, flux )
 %LOOP is the main loop of simulation.
 %   This function is the main loop of the simulation. After the
 %   initialisation, every step is controled from here.
@@ -15,11 +15,11 @@ function [] = loop( I0, g, a0, a, T, dt, geo, simpath, Y, X, nodes, neigh, D, pa
 
 
 		% set source and sink node
-		[ soury, sourx, sinky, sinkx ] = loop_nodes( T, Y, X, nodes );
+		[ soury, sourx, sinky, sinkx, curI ] = loop_nodes( T, Y, X, nodes, I );
 
 
 		% get equation system
-		[ A, b ] = loop_system( I0, geo, Y, X, neigh, D, path, A, b, soury, sourx, sinky, sinkx );
+		[ A, b ] = loop_system( geo, Y, X, neigh, D, path, A, b, soury, sourx, sinky, sinkx, curI );
 
 
 		% solve equation system
@@ -33,7 +33,7 @@ function [] = loop( I0, g, a0, a, T, dt, geo, simpath, Y, X, nodes, neigh, D, pa
 		% compute and save results
 		newpath = sum( find( path == 2 ) );
 
-		loop_export( dt, simpath, D, path, oldpath, t, newpath );
+		loop_export( dt, simpath, D, path, oldpath, a0, a, t, newpath );
 
 		oldpath = newpath;
 
@@ -44,7 +44,7 @@ end
 
 
 %% get random source and sink node
-function [ soury, sourx, sinky, sinkx ] = loop_nodes( T, Y, X, nodes )
+function [ soury, sourx, sinky, sinkx, curI ] = loop_nodes( T, Y, X, nodes, I )
 
 
 	for u = 0:T
@@ -62,13 +62,14 @@ function [ soury, sourx, sinky, sinkx ] = loop_nodes( T, Y, X, nodes )
 
 	[ soury, sourx ] = ind2sub( [ Y, X ], nodes( v1 ) );
 	[ sinky, sinkx ] = ind2sub( [ Y, X ], nodes( v2 ) );
+	curI             = I( v1 );
 
 
 end
 
 
 %% compute equation system
-function [ A, b ] = loop_system( I0, geo, Y, X, neigh, D, path, A, b, soury, sourx, sinky, sinkx )
+function [ A, b ] = loop_system( geo, Y, X, neigh, D, path, A, b, soury, sourx, sinky, sinkx, curI )
 
 
 	for i = 1:X
@@ -86,7 +87,7 @@ function [ A, b ] = loop_system( I0, geo, Y, X, neigh, D, path, A, b, soury, sou
 
 					if ( i == sourx && j == soury )
 
-						b( q ) = -I0;
+						b( q ) = -curI;
 
 					end
 						
@@ -162,7 +163,7 @@ end
 
 
 %% save the results
-function [] = loop_export( dt, simpath, D, path, oldpath, t, newpath )
+function [] = loop_export( dt, simpath, D, path, oldpath, a0, a, t, newpath )
 
 
 	if ( newpath ~= oldpath )
@@ -172,7 +173,7 @@ function [] = loop_export( dt, simpath, D, path, oldpath, t, newpath )
 
 	end
 
-	save( [ simpath, 'state.txt' ], 't', 'newpath', '-ascii' );
+	save( [ simpath, 'state.txt' ], 'a0', 'a', 't', 'newpath', '-ascii' );
 
 
 end

@@ -20,6 +20,10 @@ function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, expor
 	nodes = find( geo == 3 );
 
 
+	% get pulses
+	I = initial_pulse( I0, a0, a, pop, grow, nodes );
+
+
 	% define von Neumann neighbourhood (x y)
 	neigh = [         0 -1;
 		      -1  0;         1  0;
@@ -48,7 +52,7 @@ function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, expor
 
 
 	% start main loop
-	loop( I0, g, a0, a, T, dt, geo, simpath, Y, X, nodes, neigh, D, path, t0, flux );
+	loop( g, a0, a, T, dt, geo, simpath, Y, X, nodes, I, neigh, D, path, t0, flux );
 
 
 end
@@ -98,6 +102,31 @@ function [ geo, pop, grow ] = initial_load( backup, import, geofile, popfile, gr
 		pop  = load( [ import, popfile ] );
 		grow = load( [ import, growfile ] );
 
+	end
+
+
+end
+
+
+%% initialize pulses
+function [ I ] = initial_pulse( I0, a0, a, pop, grow, nodes )
+
+
+	I = ones( length( nodes ), 1 )*( ( I0( 1 )+I0( 2 ) )/2 );
+
+	if ( a > a0 )
+
+		for i = 1:length( nodes )
+
+			I( i ) = pop( nodes( i ) )*( 1+grow( nodes( i ) )/100 )^( a-a0 );
+
+		end
+		
+		a = ( I0( 2 )-I0( 1 ) )/( max( I )-min( I ) );
+		b = 1 - ( I0( 2 )-I0( 1 ) )/( max( I )-min( I ) )*min( I );
+
+		I = a*I+b;
+		
 	end
 
 
