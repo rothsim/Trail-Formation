@@ -6,4 +6,3 @@
 \contentsline {section}{\numberline {6}Simulation Results and Discussion}{9}
 \contentsline {section}{\numberline {7}Summary and Outlook}{9}
 \contentsline {section}{\numberline {A}Matlab-Code}{9}
-\contentsline {section}{\numberline {B}Declaration of Originality}{9}
