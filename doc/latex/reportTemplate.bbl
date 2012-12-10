@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{bfs}
+Bilanz der st{\"a}ndigen Wohnbev{\"o}lkerung (Total) nach Bezirken~und
+  Gemeinden.
+\newblock
+  http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/data/01.html,
+  october 2012.
+
+\bibitem{coordinates}
+Koordinator.
+\newblock http://tools.retorte.ch/map/, october 2012.
+
+\bibitem{gis_data}
+GeoVITe ETH~Geodata Portal.
+\newblock http://www.geodata.ethz.ch, october 2012.
+
+\bibitem{network_model}
+Atsushi Tero, Ryo Kobayashi, and Toshiyuki Nakagaki.
+\newblock Physarum solver: A biologically inspired method of road-network
+  navigation.
+\newblock {\em Physica A Statisticla Mechanics and its Applications}, 2006.
+
+\bibitem{network_tokyo}
+Atsushi Tero, Seiji Takagi, Tetsu Saigusa, Kentaro Ito, Dan~P. Bebber, Mark~D.
+  Fricker, Kenjo Yumiki, Ryo Kobayashi, and Toshiyuki Nakagaki.
+\newblock Rules for biologically inspired adaptive network design.
+\newblock {\em Science Magazine}, 2010.
+
+\end{thebibliography}
