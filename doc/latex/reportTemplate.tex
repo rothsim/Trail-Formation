@@ -16,6 +16,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{pdfpages}
+\usepackage{moreverb}
 
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
@@ -132,7 +133,7 @@ We expect that the most efficient network created by the simulation is a good ap
 
 The model is inspired of the physarum polycephalum and the way this single-celled fungus searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
 ~\\
-The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube:
+The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube \cite{kirb2010}:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{figures/figure2}
@@ -154,7 +155,7 @@ Q_{ij}=\frac{D_{ij}}{L_{ij}}\Delta p_{ij}
 , where $D_{ij}=-\frac{\pi R^4}{8\eta}$ is the conductance. So we see that the Hagen-Poiseuille law is related to Ohms law, where we have a similar expression.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/figure1}
+	\includegraphics[width=6cm]{figures/figure1}
 	\caption{\textbf{a)} Concept of the mathematical model with a source and sink node. The distance between the given nodes is a constant $d$. The centered node is not reachable. \textbf{b)} Any square represents a node with red sources, yellow transport junctions (cyan is not used) and not reachable blue terrain.}
 	\label{fig:schema}
 \end{figure}
@@ -246,6 +247,38 @@ To compare the simulated results with the actual Swiss rail network, different t
 
 
 \subsection{MATLAB}
+\subsubsection{Shortest Connection}
+For evaluating the path length given by the Physarum simulation data, we used a program, which computes the shortest path length between two given points on the map. We use a standard algorithm \cite{gaertner2010} for implementing the function in MATLAB. In general the code uses a start coordinate from an input file, related to the map matrix A, with the defined neighborhood, i.e.:
+\begin{verbatim}
+function [B,short_length] = shortest_path(A,points,neigh)
+\end{verbatim}
+What we get by calling the function with the necessary arguments is a matrix B, which contains the given map, without citites or earlier computed ways, but with the drawn shortest path. As second output argument one can use the shortest path length as \textbf{int} value. The algorithm explained in a nutshell works can be described with the following words: After cleaning the computed matrix from cities and ways, the start entry is coded with two. As a result the matrix contains only zero elements (ghostland), ones (free land) and the start entry two. We iterate over the whole matrix entries and continue in the loop. If the entry isn't one jump to the next cell:
+\begin{verbatim}
+if B(k,l) ~= 1
+	continue;
+end
+\end{verbatim}
+We numerate the cells starting by two (where the next reachable cell gets the next greater natural number) and iterate with the given neighborhood:
+\begin{verbatim}
+if B(m,n) == step+1
+B(k,l) = step+2;
+iter = 1;
+end
+\end{verbatim}
+The variable \textbf{iter} shows if there is any neighbor (=1), if not the loops stops:
+\begin{verbatim}
+if ~iter
+break;
+end
+\end{verbatim}
+At the end one gets a numerated way, which can be used to calculate the track length or to use a backtracking algorithm for getting the way in the matrix output matrix B. The whole program is attached to the appendix.\\
+For testing the track length, computed by the Physarum simulation we used several waypoints and compared the lengths to the shortest path lengths. The outcome was that the lengths are equal. You can see one data evaluation in Figure \ref{fig:short}:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=12cm]{figures/figure3}
+	\caption{\textbf{a)} Simulated track length from the Physarum simulation code. \textbf{b)} Zoomed into the red square are to see on the left hand side the Physarum simulation track length, compared to the right hand side computed shortest track length.}
+	\label{fig:short}
+\end{figure}
 \label{sec:matlab}
 
 
@@ -276,23 +309,135 @@ In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} are the results of 
 
 Summary blabla...\\
 \\
-There are different points to continueing this project with. With more time and hardware capacity it is possible to do a lot more simulations to find the best set of parameters. Another interessting point would be to simulate the rail network with more restrictions like the slope or other surface coverings. It is also possible to simulate different scenarios of the population growth to see the consequences of the rail network developing. Another way to use the model is that the actual rail network is given and the simulation shows the utilization of the different rail lines.
+There are different points to continue with this project or maybe to enlarge it in future. With more time and hardware capacity it is possible to do a lot more simulations to find the best set of parameters. Another interessting point would be to simulate the rail network with more restrictions like the slope or other surface coverings. It is also possible to simulate different scenarios of the population growth to see the consequences of the rail network developing. Another way to use the model is that the actual rail network is given and the simulation shows the utilization of the different rail lines.
 Further are the international connections not considered. This could also be an additional point.
-
-
-
-
-
-
-
 
 
 
 \appendix
 \section{Matlab-Code}
-
 Matlab-Code
+\subsection{Shortest Path}
+\begin{verbatim}
+% Modeling and Simulating Social Systems with MATLAB
+% http://www.soms.ethz.ch/matlab
+% Author: Gabriela Schaer, Simon Roth, Lucas Boettcher 2012
+% http://github.org/Trail-Formation
 
+%PRE: A is the map with start: 2, free and end: 1, ghost 0, start and end
+%coordinates from points vector and the neighborhood from neigh
+
+%POST: Matrix B with drawn shortest path and the length (short_length)
+
+function [B,short_length] = shortest_path(A,points,neigh)
+
+% This function computes one shortest path and whose length between
+%two points given in a 1x4 matrix, with coordinates related to the
+%quadratic matrix A
+
+% read matrix dimension
+ALength1 = size(A,1);
+ALength2 = size(A,2);
+
+%initialize matrix B
+B=A;
+
+%Clear matrix B from ways and cities
+
+for i=1:ALength1
+    for j=1:ALength2
+        if B(i,j)==2 || B(i,j)==3
+            B(i,j)=1;
+        end
+    end
+end
+
+% iterate over the given points
+
+    B(points(1),points(2)) = 2;
+
+    % iterate over grid matrix A
+            for step=1:ALength2^2
+                
+                % neighbor watch
+                iter = 0;
+                
+                for k=1:ALength1
+                    for l=1:ALength2
+                                                    
+                        if B(k,l) ~= 1
+                            continue;
+                        end
+                        
+                        % we use the linked neighborhood
+                        
+                        for p = 1:size( neigh, 1 )
+
+                        m = k+neigh( p, 1 );
+                        n = l+neigh( p, 2 );
+                    
+                        % need to respect borders
+                        
+                            if m >= 1 && n >= 1 && m <= ALength1 && n <= ALength2
+                                
+                                if B(m,n) == step+1
+                                B(k,l) = step+2;
+                                iter = 1;
+                                end
+                                
+                            end
+                        
+                        end
+                    end
+                   
+                end
+                % if there is no other neighbor, break
+                    if ~iter
+                        break;
+                    end
+                
+            end
+        
+       %compute the length from the marked elements in A
+       short_length = B(points(3),points(4))-B(points(1),points(2));
+       
+       %initialize the jumping backward iteration points (for the
+       %backtracking drawing of the way)
+       end1=points(3);
+       end2=points(4);
+   for k=1:short_length
+      
+       for p = 1:size( neigh, 1 )
+
+                        m = end1+neigh( p, 1 );
+                        n = end2+neigh( p, 2 );
+                    
+                        % need to respect borders
+                        
+                            if m >= 1 && n >= 1 && m <= ALength1 && n <= ALength2
+                                
+                                if B(m,n) == B(end1,end2)-1;
+                                B(end1,end2) = 2;
+                                end1=m;
+                                end2=n;
+                                end
+                                
+                            end
+                            continue;
+       end
+       
+       
+   end
+   
+    for k=1:ALength1
+    for l=1:ALength2
+        if B(k,l)~=2 && B(k,l)~=1 && B(k,l)~=0
+            B(k,l)=1;
+        end
+    end
+    end
+end
+\end{verbatim}
 
 \includepdf{figures/declaration.pdf}
 
