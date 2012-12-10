@@ -1,5 +1,5 @@
 %project slimy
-%main.m, November 2012
+%main.m, Dezember 2012
 %Böttcher Lucas, Roth Simon, Schär Gabriela
 
 
@@ -13,7 +13,7 @@ D0 =   1.00;	%initial conductivity
 I0 = [ 1; 3 ];	%flux interval
 g  =   1.80;	%expans equation gamma
 a0 =   2011;	%year of simulation data
-a  =   2050;	%year of simulation, not growth for a < a0
+a  =   2050;	%year of simulation, no growth for a < a0
 
 T  = 1000;		%end of simulation
 dt = 0.01;		%timestep of simulation

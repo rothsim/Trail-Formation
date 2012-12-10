@@ -49,6 +49,7 @@ function [ soury, sourx, sinky, sinkx, curI ] = loop_nodes( T, Y, X, nodes, I )
 
 	for u = 0:T
 
+		% random node numbers
 		v1 = randi( length( nodes ), 1 );
 		v2 = randi( length( nodes ), 1 );
 
@@ -60,9 +61,12 @@ function [ soury, sourx, sinky, sinkx, curI ] = loop_nodes( T, Y, X, nodes, I )
 
 	end
 
+	% get source and sink coordinates
 	[ soury, sourx ] = ind2sub( [ Y, X ], nodes( v1 ) );
 	[ sinky, sinkx ] = ind2sub( [ Y, X ], nodes( v2 ) );
-	curI             = I( v1 );
+
+	% get flux of source
+	curI = I( v1 );
 
 
 end
@@ -117,6 +121,7 @@ end
 function [ D, path ] = loop_update( g, dt, geo, Y, X, neigh, D, flux, press )
 
 
+	% reset path
 	path = geo;
 		
 	for i = 1:X
@@ -166,13 +171,15 @@ end
 function [] = loop_export( dt, simpath, D, path, oldpath, a0, a, t, newpath )
 
 
+	% only save results on change
 	if ( newpath ~= oldpath )
 
-		draw( 'white', path , 'jet', [ simpath, 'path/' ], [ 'path_', num2str( 1/dt*t ) ] );
+		draw( path , 'jet', [ simpath, 'path/' ], [ 'path_', num2str( 1/dt*t ) ] );
 		save( [ simpath, 'conductivity/', 'conductivity_', num2str( 1/dt*t ) ], 'D' );
 
 	end
 
+	% update state file
 	save( [ simpath, 'state.txt' ], 'a0', 'a', 't', 'newpath', '-ascii' );
 
 

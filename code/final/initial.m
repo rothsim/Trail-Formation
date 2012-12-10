@@ -41,7 +41,7 @@ function [] = initial( D0, I0, g, a0, a, T, dt, backup, simfolder, import, expor
 	flux = zeros( X*Y, X*Y );
 
 
-	% export topography
+	% export data for backup
 	if ( backup ~= 1 )
 
 		save( [ simpath, 'geodata' ], 'geo' );
@@ -92,12 +92,14 @@ function [ geo, pop, grow ] = initial_load( backup, import, geofile, popfile, gr
 
 	if ( backup == 1 )
 
+		% load exported files
 		load( [ simpath, 'geodata.mat' ] );
 		load( [ simpath, 'population.mat' ] );
 		load( [ simpath, 'growth.mat' ] );
 
 	else
 
+		% load input files
 		geo  = load( [ import , geofile ] );
 		pop  = load( [ import, popfile ] );
 		grow = load( [ import, growfile ] );
@@ -112,19 +114,24 @@ end
 function [ I ] = initial_pulse( I0, a0, a, pop, grow, nodes )
 
 
+	% initial pulses with mean of flux interval
 	I = ones( length( nodes ), 1 )*( ( I0( 1 )+I0( 2 ) )/2 );
 
+	% compute pulses for population growth
 	if ( a > a0 )
 
 		for i = 1:length( nodes )
 
+			% assume a linear growth
 			I( i ) = pop( nodes( i ) )*( 1+grow( nodes( i ) )/100 )^( a-a0 );
 
 		end
 		
+		% compute linear function of fluxes in interval
 		a = ( I0( 2 )-I0( 1 ) )/( max( I )-min( I ) );
 		b = 1 - ( I0( 2 )-I0( 1 ) )/( max( I )-min( I ) )*min( I );
 
+		% final flux matrix
 		I = a*I+b;
 		
 	end
@@ -137,6 +144,7 @@ end
 function [ D, path, t0 ] = initial_dpath( dt, backup, D0, simpath, geo, Y, X, neigh, D, path )
 
 
+	% initial starttime
 	t0 = 0;
 
 	if ( backup == 1 )
@@ -155,6 +163,7 @@ function [ D, path, t0 ] = initial_dpath( dt, backup, D0, simpath, geo, Y, X, ne
 
 	end
 
+	% initialize or restore conductivity matrix
 	for i = 1:X
 		for j = 1:Y
 

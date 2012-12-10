@@ -13,7 +13,7 @@ simpath  = 'output/73520551715/';
 dt       = 0.01;
 
 load( [ simpath, 'geodata.mat' ] );
-cellsize = 2500;
+cellsize = 2500;						%[m]
 
 
 % start analysis
