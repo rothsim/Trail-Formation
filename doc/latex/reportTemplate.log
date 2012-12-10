@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 DEC 2012 10:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 DEC 2012 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,20 +788,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--256
 
  []
 
-<figures/path_railway.jpg, id=85, 514.92375pt x 419.31656pt>
+<figures/path_railway.jpg, id=85, 478.03593pt x 409.53pt>
 File: figures/path_railway.jpg Graphic file (type jpg)
 
 <use figures/path_railway.jpg>
 Package pdftex.def Info: figures/path_railway.jpg used on input line 261.
-(pdftex.def)             Requested size: 301.00192pt x 245.11684pt.
+(pdftex.def)             Requested size: 301.00192pt x 257.86778pt.
  [9 <./figures/map_2500_cities.jpg>]
-<figures/conductivity_railway.jpg, id=89, 514.92375pt x 440.39531pt>
+<figures/conductivity_railway.jpg, id=89, 469.00218pt x 409.53pt>
 File: figures/conductivity_railway.jpg Graphic file (type jpg)
 
 <use figures/conductivity_railway.jpg>
 Package pdftex.def Info: figures/conductivity_railway.jpg used on input line 26
 8.
-(pdftex.def)             Requested size: 301.00192pt x 257.43869pt.
+(pdftex.def)             Requested size: 301.00192pt x 262.82942pt.
  [10 <./figures/path_railway.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 277--281
 
@@ -869,7 +869,7 @@ cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 sbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i12.pfb>
-Output written on reportTemplate.pdf (13 pages, 4635281 bytes).
+Output written on reportTemplate.pdf (13 pages, 4645781 bytes).
 PDF statistics:
  165 PDF objects out of 1000 (max. 8388607)
  111 compressed objects within 2 object streams
