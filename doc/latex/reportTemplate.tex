@@ -117,7 +117,7 @@ We assume, that the rail network is developed in a way that the connections betw
 	\item Are there any new built or destroyed connections in the network because of the future population growth?
 \end{enumerate}
 
-To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geodata from geodata.ethz.ch~\cite{gis_data} are used. This data are processed with \textit{Arcgis 10.1} to get the basis for the simulation.
+To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geodata from geodata.ethz.ch~\cite{gis_data} are used. This data are processed with \textit{ArcGis 10.1} to get the basis for the simulation.
 
 Cities are choosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railaway station. Additional to these some cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
 ~\\
@@ -209,10 +209,10 @@ The network Poisson equation for the pressure is derived from the equations (\re
 All $p_i$'s can be determined by solving the equation system (\ref{eq:6}) wenn setting $p_2=0$ as a basic pressure level. With this also each $Q_{ij}$ is obtained. They are definend bay the $D_{ij}$'s and $L_{ij}$'s  at each time step. Conductivity is closely related to the thickness of the junctions and so when a conductivity of a junction is zero, it disappears.
 
 \section{Implementation}
-\subsection{Arcgis}
+\subsection{ArcGis}
 \label{sec:arcgis}
 
-To get the basis matrix for the simulation, Swiss geodata\,\cite{gis_data} are processed with \textit{Arcgis\,10.1}. Therefor the rasterdata are distinguished in different classes as in Table\,\ref{tab:class} are described.
+To get the basis matrix for the simulation, Swiss geodata\,\cite{gis_data} are processed with \textit{ArcGis\,10.1}. Therefor the rasterdata are distinguished in different classes as in Table\,\ref{tab:class} are described.
 
 \begin{table}[H]
 	\centering
@@ -232,7 +232,7 @@ To get the basis matrix for the simulation, Swiss geodata\,\cite{gis_data} are p
 \label{tab:class}
 \end{table}
 
-All the geodata are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considerated in the simulation. Then all the choosen cities are imported to \textit{Arcgis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disapear when the vectordata gets converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
+All the geodata are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considerated in the simulation. Then all the choosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disapear when the vectordata gets converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
 
 To compare the simulated results with the actual Swiss rail network, different types of railroads are neglected. Therefor every tunnel and every rail road which is not in use are not showed.
 
@@ -241,7 +241,7 @@ To compare the simulated results with the actual Swiss rail network, different t
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/map_2500_cities}
-	\caption{Rastardata from Arcgis with a gridsize of 2500m - white: Ghostland, green: Freeland, brown: City}
+	\caption{Rastardata from ArcGis with a gridsize of 2500m - white: Ghostland, green: Freeland, brown: City}
 	\label{fig:map_cities}
 \end{figure}
 
