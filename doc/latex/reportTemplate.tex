@@ -17,6 +17,7 @@
 \usepackage{booktabs}
 \usepackage{pdfpages}
 \usepackage{moreverb}
+\usepackage{mcode}
 
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
@@ -247,31 +248,70 @@ To compare the simulated results with the actual Swiss rail network, different t
 
 
 \subsection{MATLAB}
+
+\subsubsection{Swiss Rail Network Simulation}
+
+To simulate the Swiss rail network a cellular automata approach with a von Neumann neighbourhood is used in this project because of the raster property of the model and the geo data. This means, the cities are fixed nodes and all free land is populated with junctions. During the simulation junction cells with low conductivity are changed to free land. The basic structure of the network simulation is described in Figure \ref{fig:structure}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/source_code}
+	\caption{Structure of the network simulation implementation in MATLAB.}
+	\label{fig:structure}
+\end{figure}
+
+The simulation can be separated in two tasks, first the computation of data and second the analysis of data. Because of the long duration of one simulation and the lack of a break condition, owning to quasi-stationary conditions, the two task are run separatly.
+
+The \textbf{main.m} script holds all necessary informations like parameters, constants, folder and file paths to run the simulation. A backup function is implemented, which can be turned on an off, because of program crashes during testing. The three input files geodata.txt, population.txt and growth.txt, which have to be in an appropriate form without header row, are used to run the simulation. All input data is processed to input variables for the main loop in the \textbf{initial.m} function. This function initializes the folder structure of the simulation, converts the input data, restores the backup if turned on and passes all the data to the main loop. The main tasks of the \textbf{loop.m} function are to compute the linear equation system (equation \ref{eq:6}) and to solve the equations. For the equation system a index for every node and junction cell has to be computed. Due to performance loss by using the built in sub2ind MATLAB function the \textbf{varnum.m} function is implemented, which returns the index from a cell depending on the coordinates. After solving the linear equation system the new conductivities and an updated path can be computed. Because of the machine precision (eps) a junction cell already disappears before the conductivity is zero. This is implemented after noticing this behaviour in program tests. The simulation of the Swiss rail network needs a lot of time depending on the size of the input data, so a output file is implemented to control the progress and already computed results. To make a decision about the ending of the simulation a visual break conditions is implemented to see how far the network is. This picture is saved by the \textbf{draw.m} function and displays the actual network.
+
+The \textbf{main\_analysis.m} script contains all the variables to compute the final simulation results, which are computed in the \textbf{analysis.m} function. The final network and overall conductivity is converted to ASCII files, which are used to compare the different scenarios in ArcGIS. To analyse the development of the path length over time these two variables are stored in vectors to be plotted afterwards.
+
+The whole program is attached to the appendix.
+
+
+
 \subsubsection{Shortest Connection}
 For evaluating the path length given by the Physarum simulation data, we used a program, which computes the shortest path length between two given points on the map. We use a standard algorithm \cite{gaertner2010} for implementing the function in MATLAB. In general the code uses a start coordinate from an input file, related to the map matrix A, with the defined neighborhood, i.e.:
-\begin{verbatim}
+
+\begin{lstlisting}
 function [B,short_length] = shortest_path(A,points,neigh)
-\end{verbatim}
+\end{lstlisting}
+
+\null
+
 What we get by calling the function with the necessary arguments is a matrix B, which contains the given map, without citites or earlier computed ways, but with the drawn shortest path. As second output argument one can use the shortest path length as \textbf{int} value. The algorithm explained in a nutshell works can be described with the following words: After cleaning the computed matrix from cities and ways, the start entry is coded with two. As a result the matrix contains only zero elements (ghostland), ones (free land) and the start entry two. We iterate over the whole matrix entries and continue in the loop. If the entry isn't one jump to the next cell:
-\begin{verbatim}
+
+\begin{lstlisting}
 if B(k,l) ~= 1
 	continue;
 end
-\end{verbatim}
+\end{lstlisting}
+
+\null
+
 We numerate the cells starting by two (where the next reachable cell gets the next greater natural number) and iterate with the given neighborhood:
-\begin{verbatim}
+
+\begin{lstlisting}
 if B(m,n) == step+1
-B(k,l) = step+2;
-iter = 1;
+	B(k,l) = step+2;
+	iter = 1;
 end
-\end{verbatim}
+\end{lstlisting}
+
+\null
+
 The variable \textbf{iter} shows if there is any neighbor (=1), if not the loops stops:
-\begin{verbatim}
+
+\begin{lstlisting}
 if ~iter
-break;
+	break;
 end
-\end{verbatim}
-At the end one gets a numerated way, which can be used to calculate the track length or to use a backtracking algorithm for getting the way in the matrix output matrix B. The whole program is attached to the appendix.\\
+\end{lstlisting}
+
+\null
+
+At the end one gets a numerated way, which can be used to calculate the track length or to use a backtracking algorithm for getting the way in the matrix output matrix B. The whole program is attached to the appendix.
+
 For testing the track length, computed by the Physarum simulation we used several waypoints and compared the lengths to the shortest path lengths. The outcome was that the lengths are equal. You can see one data evaluation in Figure \ref{fig:short}:
 \begin{figure}[H]
 	\centering
@@ -316,128 +356,62 @@ Further are the international connections not considered. This could also be an 
 
 \appendix
 \section{Matlab-Code}
-Matlab-Code
+
+\subsection{Network Simulation}
+
+\subsubsection{main.m}
+
+\lstinputlisting{../../code/network_simulation/main.m}
+
+\null
+\null
+
+\subsubsection{initial.m}
+
+\lstinputlisting{../../code/network_simulation/initial.m}
+
+\null
+\null
+
+\subsubsection{loop.m}
+
+\lstinputlisting{../../code/network_simulation/loop.m}
+
+\null
+\null
+
+\subsubsection{varnum.m}
+
+\lstinputlisting{../../code/network_simulation/varnum.m}
+
+\null
+\null
+
+\subsubsection{draw.m}
+
+\lstinputlisting{../../code/network_simulation/draw.m}
+
+\null
+\null
+
+\subsubsection{main\_analysis.m}
+
+\lstinputlisting{../../code/network_simulation/main_analysis.m}
+
+\null
+\null
+
+\subsubsection{analysis.m}
+
+\lstinputlisting{../../code/network_simulation/analysis.m}
+
+\null
+\null
+
 \subsection{Shortest Path}
-\begin{verbatim}
-% Modeling and Simulating Social Systems with MATLAB
-% http://www.soms.ethz.ch/matlab
-% Author: Gabriela Schaer, Simon Roth, Lucas Boettcher 2012
-% http://github.org/Trail-Formation
 
-%PRE: A is the map with start: 2, free and end: 1, ghost 0, start and end
-%coordinates from points vector and the neighborhood from neigh
+\lstinputlisting{../../code/short_path/shortest_path.m}
 
-%POST: Matrix B with drawn shortest path and the length (short_length)
-
-function [B,short_length] = shortest_path(A,points,neigh)
-
-% This function computes one shortest path and whose length between
-%two points given in a 1x4 matrix, with coordinates related to the
-%quadratic matrix A
-
-% read matrix dimension
-ALength1 = size(A,1);
-ALength2 = size(A,2);
-
-%initialize matrix B
-B=A;
-
-%Clear matrix B from ways and cities
-
-for i=1:ALength1
-    for j=1:ALength2
-        if B(i,j)==2 || B(i,j)==3
-            B(i,j)=1;
-        end
-    end
-end
-
-% iterate over the given points
-
-    B(points(1),points(2)) = 2;
-
-    % iterate over grid matrix A
-            for step=1:ALength2^2
-                
-                % neighbor watch
-                iter = 0;
-                
-                for k=1:ALength1
-                    for l=1:ALength2
-                                                    
-                        if B(k,l) ~= 1
-                            continue;
-                        end
-                        
-                        % we use the linked neighborhood
-                        
-                        for p = 1:size( neigh, 1 )
-
-                        m = k+neigh( p, 1 );
-                        n = l+neigh( p, 2 );
-                    
-                        % need to respect borders
-                        
-                            if m >= 1 && n >= 1 && m <= ALength1 && n <= ALength2
-                                
-                                if B(m,n) == step+1
-                                B(k,l) = step+2;
-                                iter = 1;
-                                end
-                                
-                            end
-                        
-                        end
-                    end
-                   
-                end
-                % if there is no other neighbor, break
-                    if ~iter
-                        break;
-                    end
-                
-            end
-        
-       %compute the length from the marked elements in A
-       short_length = B(points(3),points(4))-B(points(1),points(2));
-       
-       %initialize the jumping backward iteration points (for the
-       %backtracking drawing of the way)
-       end1=points(3);
-       end2=points(4);
-   for k=1:short_length
-      
-       for p = 1:size( neigh, 1 )
-
-                        m = end1+neigh( p, 1 );
-                        n = end2+neigh( p, 2 );
-                    
-                        % need to respect borders
-                        
-                            if m >= 1 && n >= 1 && m <= ALength1 && n <= ALength2
-                                
-                                if B(m,n) == B(end1,end2)-1;
-                                B(end1,end2) = 2;
-                                end1=m;
-                                end2=n;
-                                end
-                                
-                            end
-                            continue;
-       end
-       
-       
-   end
-   
-    for k=1:ALength1
-    for l=1:ALength2
-        if B(k,l)~=2 && B(k,l)~=1 && B(k,l)~=0
-            B(k,l)=1;
-        end
-    end
-    end
-end
-\end{verbatim}
 
 \includepdf{figures/declaration.pdf}
 
