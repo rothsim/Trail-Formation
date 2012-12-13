@@ -132,7 +132,7 @@ We expect that the most efficient network created by the simulation is a good ap
 \section{Description of the Model}
 \label{sec:description}
 
-The model is inspired of the physarum polycephalum and the way this single-celled fungus searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
+The model is inspired of the Physarum polycephalum and the way this single-celled fungus searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
 ~\\
 The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube \cite{kirb2010}:
 \begin{figure}[H]
@@ -235,7 +235,7 @@ To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_dat
 
 All the geographic data are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considerated in the simulation. Then all the choosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disapear when the vectordata get converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
 
-To compare the simulated results with the actual Swiss rail network, different types of railroads are neglected. Therefor every tunnel and every rail road which is not in use are not showed.
+To compare the simulated results with the actual Swiss rail network, different types of railroads are neglected. Therefor every tunnel and every rail road which is not in use are not shown.
 
 
 
@@ -272,7 +272,7 @@ The whole program is attached to the appendix\,\ref{sec:network_simulation}.
 
 \subsubsection{Shortest Connection}
 \label{sec:shortest_connection}
-For evaluating the path length given by the physarum simulation data, a program is used, which computes the shortest path length between two given points on the map. A standard algorithm \cite{gaertner2010} for implementing the function in MATLAB is used. In general the code uses a start coordinate from an input file, related to the map matrix A with the defined neighborhood, i.e.:
+For evaluating the path length given by the Physarum simulation data, a program is used, which computes the shortest path length between two given points on the map. A standard algorithm \cite{gaertner2010} for implementing the function in MATLAB is used. In general the code uses a start coordinate from an input file, related to the map matrix A with the defined neighborhood, i.e.:
 
 \begin{lstlisting}
 function [B,short_length] = shortest_path(A,points,neigh)
@@ -320,7 +320,13 @@ At the end the output is a numerated path, which can be used to calculate the tr
 All the simulations are running with the same parameters and with a cellsize of 2500m.
 \\
 
-In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} are the results of the MATLAB simulation and the actual rail network showed. In this simulations are assumed that every city has an equal number of inhabitants. In Figure\,\ref{fig:path} the choosen path is ploted. Under consideration of the choosen cities that the slope is neglected is this simulated path a good approximation to the real rail network. In Figure\,\ref{fig:conductivity} is the conductivity showed that goes with the simulated path. It describes which line is used the most (eg. Bern-Solothurn-Sursee-Luzern-Zug-Zurich).
+In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} are the results of the first MATLAB simulation and the actual rail network shown. In this simulation is assumed that every city has an equal number of inhabitants. The choosen path is in Figure\,\ref{fig:path} ploted. Under consideration of the choosen cities and that the slope is neglected is this simulated path a good approximation to the real rail network. The plot in Figure \,\ref{fig:plottrail} showes the developement of the overall path length over time. At first the function needs many time steps to change something and then the length decreases in an exponential way. With more time steps,  the function has to itterate over less cells and so less time steps are needed to proceed.
+
+In Figure\,\ref{fig:conductivity} is the conductivity shown that goes with this simulated path. It describes which line is used the most (eg. Bern-Solothurn-Sursee-Lucern-Zug-Zurich).
+\\
+
+The simulation was running twice, each time with the same result.
+
 
 
 \begin{figure}[H]
@@ -332,17 +338,50 @@ In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} are the results of 
 
 \begin{figure}[H]
 	\centering
+	\includegraphics[width=0.5\textwidth]{figures/plottrail1}
+	\caption{Developement of the overall path length according to Figure\,\ref{fig:path}; path length in numbers of cells containing slime mold, time in numbers of time steps}
+	\label{fig:plottrail}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
 	\includegraphics[width=0.7\textwidth]{figures/conductivity_railway}
 	\caption{Simulated conductivity of Physarum polycephalum and the actual Swiss rail network}
 	\label{fig:conductivity}
 \end{figure}
 
-The question comes up, if the simulated path of the slime mold is the shortest connection between two cities. To verify this assumption a second program is used \ref{sec:shortest_connection}. The result is, that the lengths between the cities are in both simulations equal as showed in Figure\,\ref{fig:short}. This make sense, because the shortest path is often the one with the highest efficiency.
+To answer the second main question, a second simulation was running. This time, each city has its own number of inhabitants corresponding to the assumend population in 2050 calculated with a linear growth\,\cite{bfs}. The result is in Figure\,\ref{fig:path_2050} shown. Comparing to the actual path there are just slight differents. Exept of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disapear in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disapearing connection between Bern and Solothurn follows of the different numbers of time steps over which the simulation itterates (first simulation: 5973, second: 7318). With more time steps the junction would in both simulations not exist.
+
+Comparing the plots of the conductivity, there are just slight differents too. In general, the conductivity is lower as in the first simulation. That depends on the conductivity at the first time step, which is in the first simulation higher. The line with the highest conductivity is in the simulation of 2050 longer as in Figure\,\ref{fig:conductivity_2050} is shown. The most popular line goes now from Lausanne, Bern, Solothurn, Lucern, Zug to Zurich. This leads to the conclusion that the Swiss rail network will not much change in the future.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/path_railway_2050}
+	\caption{Simulated path in 2050 of Physarum polycephalum and the actual Swiss rail network}
+	\label{fig:path_2050}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/test}
+	\caption{Developement of the overall path length according to Figure\,\ref{fig:path_2050}; path length in numbers of cells containing slime mold, time in numbers of time steps}
+	\label{fig:plottrail_2050}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/conductivity_railway_2050}
+	\caption{Simulated conductivity in 2050 of Physarum polycephalum and the actual Swiss rail network}
+	\label{fig:conductivity_2050}
+\end{figure}
+
+The question comes up, if the simulated path of the slime mold is the shortest connection between two cities. To verify this assumption a second program is used (compare \ref{sec:shortest_connection}). The result is, that the lengths between the cities are in both simulations equal as shown in Figure\,\ref{fig:short}. This make sense, because the shortest path is often the one with the highest efficiency.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/figure3}
-	\caption{\textbf{a)} Simulated track length from the physarum simulation code. \textbf{b)} Zooming into the red square is on the left hand side the physarum simulation track length, compared to the right hand side computed shortest track length showed.}
+	\caption{\textbf{a)} Simulated path length from the Physarum simulation code. \textbf{b)} Zooming into the red square is on the left hand side the Physarum simulation path length, compared to the right hand side computed shortest path length shown.}
 	\label{fig:short}
 \end{figure}
 \label{sec:matlab}
@@ -351,19 +390,20 @@ The question comes up, if the simulated path of the slime mold is the shortest c
 \section{Summary and Outlook}
 \label{sec:summary}
 
-The main goal of this project was to simulate the Swiss rail network based on a biological model. In a first part the path of the Swiss rail network is simulated and in a second part the influence of the network based on the population in the different cities  is investigated. So both main questions can be answered.
+The main goal of this project was to simulate the Swiss rail network based on a biological model. In a first simulation the path of the Swiss rail network is simulated and in a second simulation the influence on the network based on the population in the different cities is investigated. So both main questions can be answered.
 
 \begin{enumerate}
 \item The simulation leads to a good approximation of the real Swiss rail network under consideration that different surface covers and the slope is neglected.
-\item
+\item Depending on the population growth there are no new connections built but one is disapeard.
 \end{enumerate}
 
+The model based on Physarum polycephalum leads in general to a good approximation of a rail network. But the utilization of a rail network depends not just of the numbers of people living in a city. And that is the only parameter which the model use to decide which connection is efficient. There are also less mathematical parameters which make a specific connection more efficient or more attractiv to use. For example how fast can a train ride and following this how long last a journey. Or especially in the Alps are the numbers of tourist and the touristic village with less inhabitants an important factor.\\
 
 There are different points to continue with this project or maybe to enlarge it in future. With more time and hardware capacity it is possible to do a lot more simulations to find the best set of parameters. Another interessting point would be to simulate the rail network with more restrictions like the slope or other surface coverings. It is also possible to simulate different scenarios of the population growth to see the consequences of the rail network developing. Another way to use the model is that the actual rail network is given and the simulation shows the utilization of the different rail lines.
 Further are the international connections not considered. This could also be an additional point.
 
 
-
+\newpage
 \appendix
 \section{Matlab-Code}
 
@@ -405,6 +445,7 @@ Further are the international connections not considered. This could also be an 
 \null
 \null
 
+\newpage
 \subsubsection{main\_analysis.m}
 
 \lstinputlisting{../../code/network_simulation/main_analysis.m}

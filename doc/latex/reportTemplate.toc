@@ -8,14 +8,14 @@
 \contentsline {subsubsection}{\numberline {5.2.1}Swiss Rail Network Simulation}{9}
 \contentsline {subsubsection}{\numberline {5.2.2}Shortest Connection}{11}
 \contentsline {section}{\numberline {6}Simulation Results and Discussion}{12}
-\contentsline {section}{\numberline {7}Summary and Outlook}{15}
-\contentsline {section}{\numberline {A}Matlab-Code}{16}
-\contentsline {subsection}{\numberline {A.1}Network Simulation}{16}
-\contentsline {subsubsection}{\numberline {A.1.1}main.m}{16}
-\contentsline {subsubsection}{\numberline {A.1.2}initial.m}{17}
-\contentsline {subsubsection}{\numberline {A.1.3}loop.m}{21}
-\contentsline {subsubsection}{\numberline {A.1.4}varnum.m}{25}
-\contentsline {subsubsection}{\numberline {A.1.5}draw.m}{25}
-\contentsline {subsubsection}{\numberline {A.1.6}main\_analysis.m}{25}
-\contentsline {subsubsection}{\numberline {A.1.7}analysis.m}{26}
-\contentsline {subsection}{\numberline {A.2}Shortest Path}{30}
+\contentsline {section}{\numberline {7}Summary and Outlook}{17}
+\contentsline {section}{\numberline {A}Matlab-Code}{18}
+\contentsline {subsection}{\numberline {A.1}Network Simulation}{18}
+\contentsline {subsubsection}{\numberline {A.1.1}main.m}{18}
+\contentsline {subsubsection}{\numberline {A.1.2}initial.m}{19}
+\contentsline {subsubsection}{\numberline {A.1.3}loop.m}{23}
+\contentsline {subsubsection}{\numberline {A.1.4}varnum.m}{27}
+\contentsline {subsubsection}{\numberline {A.1.5}draw.m}{27}
+\contentsline {subsubsection}{\numberline {A.1.6}main\_analysis.m}{28}
+\contentsline {subsubsection}{\numberline {A.1.7}analysis.m}{28}
+\contentsline {subsection}{\numberline {A.2}Shortest Path}{32}

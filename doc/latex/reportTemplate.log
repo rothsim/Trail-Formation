@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 DEC 2012 10:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 DEC 2012 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,29 +996,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--322
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
+
+ []
+
 <figures/path_railway.jpg, id=94, 472.76625pt x 389.95688pt>
 File: figures/path_railway.jpg Graphic file (type jpg)
 
 <use figures/path_railway.jpg>
-Package pdftex.def Info: figures/path_railway.jpg used on input line 328.
+Package pdftex.def Info: figures/path_railway.jpg used on input line 334.
 (pdftex.def)             Requested size: 301.00192pt x 248.28629pt.
  [12]
-<figures/conductivity_railway.jpg, id=98, 464.4853pt x 402.75468pt>
+<figures/plottrail1.jpg, id=98, 536.7252pt x 408.0846pt>
+File: figures/plottrail1.jpg Graphic file (type jpg)
+
+<use figures/plottrail1.jpg>
+Package pdftex.def Info: figures/plottrail1.jpg used on input line 341.
+(pdftex.def)             Requested size: 215.0023pt x 163.46756pt.
+
+<figures/conductivity_railway.jpg, id=99, 464.4853pt x 402.75468pt>
 File: figures/conductivity_railway.jpg Graphic file (type jpg)
 
 <use figures/conductivity_railway.jpg>
-Package pdftex.def Info: figures/conductivity_railway.jpg used on input line 33
-5.
+Package pdftex.def Info: figures/conductivity_railway.jpg used on input line 34
+8.
 (pdftex.def)             Requested size: 301.00192pt x 261.00696pt.
- [13 <./figures/path_railway.jpg>]
-<figures/figure3.pdf, id=103, 770.4313pt x 252.79182pt>
+ [13 <./figures/path_railway.jpg> <./figures/plottrail1.jpg>]
+<figures/path_railway_2050.jpg, id=104, 472.76625pt x 395.22656pt>
+File: figures/path_railway_2050.jpg Graphic file (type jpg)
+
+<use figures/path_railway_2050.jpg>
+Package pdftex.def Info: figures/path_railway_2050.jpg used on input line 359.
+(pdftex.def)             Requested size: 301.00192pt x 251.64151pt.
+ [14 <./figures/conductivity_railway.jpg>]
+<figures/test.jpg, id=108, 770.88pt x 578.16pt>
+File: figures/test.jpg Graphic file (type jpg)
+ <use figures/test.jpg>
+Package pdftex.def Info: figures/test.jpg used on input line 366.
+(pdftex.def)             Requested size: 215.0023pt x 161.2485pt.
+
+<figures/conductivity_railway_2050.jpg, id=109, 474.27188pt x 368.1253pt>
+File: figures/conductivity_railway_2050.jpg Graphic file (type jpg)
+
+<use figures/conductivity_railway_2050.jpg>
+Package pdftex.def Info: figures/conductivity_railway_2050.jpg used on input li
+ne 374.
+(pdftex.def)             Requested size: 301.00192pt x 233.64462pt.
+ [15 <./figures/path_railway_2050.jpg> <./figures/test.jpg>]
+<figures/figure3.pdf, id=113, 770.4313pt x 252.79182pt>
 File: figures/figure3.pdf Graphic file (type pdf)
 
 <use figures/figure3.pdf>
-Package pdftex.def Info: figures/figure3.pdf used on input line 344.
+Package pdftex.def Info: figures/figure3.pdf used on input line 383.
 (pdftex.def)             Requested size: 341.43306pt x 112.03105pt.
- [14 <./figures/conductivity_railway.jpg>] [15 <./figures/figure3.pdf>] (../../
-code/network_simulation/main.m
+ [16 <./figures/conductivity_railway_2050.jpg> <./figures/figure3.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+
+ []
+
+[17] (../../code/network_simulation/main.m
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 17.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/omlpcr.fd
@@ -1030,8 +1067,8 @@ LaTeX Font Info:    Try loading font information for TS1+pcr on input line 27.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [16])
-Overfull \hbox (99.20076pt too wide) in paragraph at lines 48--375
+) [18])
+Overfull \hbox (99.20076pt too wide) in paragraph at lines 48--415
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][] 
  []
@@ -1053,19 +1090,19 @@ Overfull \hbox (56.00032pt too wide) in paragraph at lines 37--40
 ][][][][][][][][][][] 
  []
 
-[17]
+[19]
 Overfull \hbox (23.59999pt too wide) in paragraph at lines 55--58
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][] 
  []
 
-[18]
+[20]
 Overfull \hbox (93.8007pt too wide) in paragraph at lines 90--93
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][] 
  []
 
-[19]
+[21]
 Overfull \hbox (77.60054pt too wide) in paragraph at lines 144--147
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][] 
@@ -1077,7 +1114,7 @@ Overfull \hbox (93.8007pt too wide) in paragraph at lines 175--177
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[20]) (../../code/network_simulation/loop.m
+[22]) (../../code/network_simulation/loop.m
 Overfull \hbox (72.20049pt too wide) in paragraph at lines 1--2
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][] 
@@ -1095,13 +1132,13 @@ File: omspcr.fd
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
- [21]
+ [23]
 Overfull \hbox (110.00087pt too wide) in paragraph at lines 76--79
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][] 
  []
 
-[22] [23]
+[24] [25]
 Overfull \hbox (93.8007pt too wide) in paragraph at lines 135--137
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -1125,79 +1162,79 @@ Overfull \hbox (34.4001pt too wide) in paragraph at lines 178--180
 ][][][][][][][][][][][][][][][][][][][] 
  []
 
-[24]) (../../code/network_simulation/varnum.m)
-(../../code/network_simulation/draw.m)
-(../../code/network_simulation/main_analysis.m [25])
-(../../code/network_simulation/analysis.m [26] [27]
+[26]) (../../code/network_simulation/varnum.m)
+(../../code/network_simulation/draw.m) [27]
+(../../code/network_simulation/main_analysis.m)
+(../../code/network_simulation/analysis.m [28] [29]
 Overfull \hbox (180.20158pt too wide) in paragraph at lines 74--76
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
+[30]
 Overfull \hbox (23.59999pt too wide) in paragraph at lines 154--157
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[29]
+[31]
 Overfull \hbox (66.80043pt too wide) in paragraph at lines 179--182
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (../../code/short_path/shortest_path.m [30]
+) (../../code/short_path/shortest_path.m [32]
 Overfull \hbox (7.39983pt too wide) in paragraph at lines 60--62
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[31]
+[33]
 Overfull \hbox (7.39983pt too wide) in paragraph at lines 96--98
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [32] <figures/declaration.pdf, id=189, page=1, 614.295pt x 844.83629pt>
+) [34] <figures/declaration.pdf, id=199, page=1, 614.295pt x 844.83629pt>
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 428.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 469.
 
 (pdftex.def)             Requested size: 614.29349pt x 844.83423pt.
 File: figures/declaration.pdf Graphic file (type pdf)
  <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 428.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 469.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 428.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 469.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
  <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 428.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 469.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 428.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 469.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
- [33 <./figures/declaration.pdf>]
+ [35 <./figures/declaration.pdf>]
 (./reportTemplate.bbl
 Overfull \hbox (16.87413pt too wide) in paragraph at lines 4--9
 \OT1/cmr/m/n/12 http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/
 data/01.html,
  []
 
-) [34] (./reportTemplate.aux) ) 
+) [36] (./reportTemplate.aux) ) 
 Here is how much of TeX's memory you used:
- 9347 strings out of 493488
- 131078 string characters out of 3141326
- 250346 words of memory out of 3000000
- 12416 multiletter control sequences out of 15000+200000
+ 9371 strings out of 493488
+ 131715 string characters out of 3141326
+ 248384 words of memory out of 3000000
+ 12436 multiletter control sequences out of 15000+200000
  17808 words of font info for 68 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  54i,18n,51p,1787b,1654s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1222,10 +1259,10 @@ al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
 /texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/
 texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
 xlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on reportTemplate.pdf (34 pages, 6140238 bytes).
+Output written on reportTemplate.pdf (36 pages, 6506505 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
+ 278 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
