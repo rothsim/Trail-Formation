@@ -98,7 +98,6 @@
 
 The process of continuous urbanization is noticeable in Switzerland like in the most other countries.\footnote[1]{see the autumn sunday lectures at ETH Science City (Die Stadt der Zukunft - die Zukunft der Stadt)} Besides the benefits of combining educational, medical, cultural and industrial centers in a small area, there are also some problems arising. The cities are growing, whereupon this growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores its environment with a relatively continuous foraging margin. It is forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. 
 
-
 \section{Individual contributions}
 \begin{itemize}
   \item Lucas Böttcher: Implementation Shortest Connection, Report
@@ -122,19 +121,13 @@ To answer these questions, the results of the simulations are compared with the 
 
 Cities were chosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railway station. Additional to these ones some other cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
 ~\\
-To answer the second question, we are going to manipulate parameters in Physarum network, like described  in \ref{sec:matlab}.\\
-~\\
-We expect that the most efficient network created by the simulation is a good approximation of the actual Swiss railroad network. We also expect that the network will not change even when the population is growing, because the network shows its major changes at the beginning of the development. And the Swiss railroad network reaches the end of development already.
-
-
-
 
 \section{Description of the Model}
 \label{sec:description}
 
 The model is inspired by the Physarum polycephalum and the way this single-celled fungus searches for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
 ~\\
-The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube \cite{kirb2010}:
+The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. The single nodes in the model are connected with circular tubes and their inner flux is measured(Figure \ref{fig:fluidd}). Therefore the fluid dynamics leads to the law of Hagen-Poiseuille, which allows to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube \cite{kirb2010}:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{figures/figure2}
@@ -145,15 +138,15 @@ The mathematical model is based on \textit{Physarum solver: A biologically inspi
 \begin{equation}
 u(z)=-\frac{1}{4\eta}\frac{dp}{dz}(R^2-\rho^2)
 \end{equation}
-, where R is the radius of the cylinder and $\eta$ the viscosity. Now we can integrate that expression over a circle, and normalize to get a mean velocity:
+, where R is the radius of the cylinder and $\eta$ the viscosity. That expression can be integrated over a circle, and normalized to get a mean velocity:
 \begin{equation}
 \overline{u(z)}=-\frac{1}{4\pi\eta R^2}\frac{dp}{dz}\int_{0}^{2\pi}\int_{0}^{R}{(R^2-\rho^2)}\rho d\rho d\phi=-\frac{1}{8\eta}\frac{dp}{dz}R^2
 \end{equation}
-We can assume that the pressure gradient is uniform and express the mean velocity by the flux divided by its cross section:
+Assumeing that the pressure gradient is uniform and express the mean velocity by the flux divided by its cross section:
 \begin{equation}
 Q_{ij}=\frac{D_{ij}}{L_{ij}}\Delta p_{ij}
 \end{equation}
-, where $D_{ij}=-\frac{\pi R^4}{8\eta}$ is the conductance. So we see that the Hagen-Poiseuille law is related to Ohms law, where we have a similar expression.
+, where $D_{ij}=-\frac{\pi R^4}{8\eta}$ is the conductance. So the Hagen-Poiseuille law is related to Ohms law, where a similar expression can be found.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6cm]{figures/figure1}
@@ -222,7 +215,7 @@ To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_dat
 		\toprule
 		Indentification & Class & Description \\
 		\midrule
-		0 & Ghostland & Cells in which the slime mold isn't allowed to be\\
+		0 & Ghostland & Cells in which the slime mold is not allowed to be\\
 		& 		& (foreign coutries, lakes)\\
 		1 & Free land & Cells in which the slime mold is allowed to grow\\
 		2 & Junction & Cells in which the slime mold is located, \\
@@ -234,6 +227,7 @@ To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_dat
 \end{table}
 
 All the geographic data are given in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considered in the simulation. Then all the chosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city were searched and a buffer of 2500m was laid on them. In this case no city will disappear when the vector data get converted to raster data with a cell size of 2500m. So after converting in raster data with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
+All the geographic data are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is neglected in this case too. So the mountains are not considerated in the simulation. Then all the choosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disappear when the vectordata get converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
 
 To compare the simulated results with the actual Swiss rail network, different types of railroads are neglected. Therefor every tunnel and every rail road which is not in use are not shown.
 
@@ -301,7 +295,7 @@ end
 
 \null
 
-The variable \textbf{iter} shows if there is any neighbour (=1), if not the loops stops:
+The variable \textbf{iter} shows if there is any neighbor (=1), if not the loops stops:
 
 \begin{lstlisting}
 if ~iter
@@ -349,12 +343,13 @@ For verifying the result this first simulation rans twice, each time with the sa
 \end{figure}
 
 To answer the second main question, a second simulation was started. This time, each city has its own number of inhabitants corresponding to the assumed population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappears in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation iterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation.
+To answer the second main question, a second simulation is ran. This time, each city has its own number of inhabitants corresponding to the assumend population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappear in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation itterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation. The developing of the overall path length is in both simulation equal. The different length at the beginning is caused of the normalization to the end length.
 
 Comparing the plots of the conductivity there are just slight differences too. In general, the conductivity is lower than in the first simulation. That depends on lower initial flux caused by the different populations, which is higher in the first simulation. The line with the highest conductivity is longer in the simulation of 2050 than in the first simulation as shown in Figure\,\ref{fig:conductivity_2050}. The most frequently used line goes now from Lausanne over Bern, Solothurn, Lucern, Zug to Zurich. This leads to the conclusion that the Swiss rail network is not going to change in the future.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/path_railway_2050}
+	\includegraphics[width=0.6\textwidth]{figures/path_railway_2050}
 	\caption{Simulated path in 2050 of Physarum polycephalum and the actual Swiss rail network}
 	\label{fig:path_2050}
 \end{figure}
@@ -363,9 +358,9 @@ Comparing the plots of the conductivity there are just slight differences too. I
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/plottrail2}
 	\caption{Development of the overall path length according to Figure\,\ref{fig:path_2050}; path length in normalized numbers (to the value of convergence) of cells containing slime mold}
+	\caption{Developement of the overall path length according to Figure\,\ref{fig:path_2050}; path length in normalized numbers of cells containing slime mold}
 	\label{fig:plottrail_2050}
 \end{figure}
-
 
 \begin{figure}[H]
 	\centering
@@ -461,6 +456,34 @@ There are different points to continue with this project or maybe to enlarge it 
 \label{sec:shortest_path}
 
 \lstinputlisting{../../code/short_path/shortest_path.m}
+
+\subsection{List of Cities}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/city_list1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/city_list2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/city_list3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/city_list4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/city_list5}
+\end{figure}
+
+
 
 
 \includepdf{figures/declaration.pdf}

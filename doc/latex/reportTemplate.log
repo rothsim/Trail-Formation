@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.21)  14 DEC 2012 15:53
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.21)  14 DEC 2012 16:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -941,58 +941,28 @@ Overfull \hbox (82.14494pt too wide) in paragraph at lines 59--75
 \openout3 = `reportTemplate.toc'.
 
  [3]
-
-Package natbib Warning: Citation `network_tokyo' on page 4 undefined on input l
-ine 99.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 
  []
 
 [4]
-
-Package natbib Warning: Citation `gis_data' on page 5 undefined on input line 1
-21.
-
-
-Package natbib Warning: Citation `bfs' on page 5 undefined on input line 123.
-
-
-LaTeX Warning: Reference `sec:matlab' on page 5 undefined on input line 125.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--128
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--128
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
-
-
-Package natbib Warning: Citation `network_model' on page 5 undefined on input l
-ine 137.
-
-
-LaTeX Warning: Reference `fig:schema' on page 5 undefined on input line 137.
-
-
-LaTeX Warning: Reference `fig:fluidd' on page 5 undefined on input line 137.
-
-
-Package natbib Warning: Citation `kirb2010' on page 5 undefined on input line 1
-37.
 
 <figures/figure2.pdf, id=27, 516.79102pt x 166.12955pt>
 File: figures/figure2.pdf Graphic file (type pdf)
 
 <use figures/figure2.pdf>
-Package pdftex.def Info: figures/figure2.pdf used on input line 140.
+Package pdftex.def Info: figures/figure2.pdf used on input line 133.
 (pdftex.def)             Requested size: 284.52756pt x 91.46532pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--143
+Underfull \hbox (badness 10000) in paragraph at lines 128--136
 
  []
 
@@ -1000,178 +970,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--143
 File: figures/figure1.pdf Graphic file (type pdf)
 
 <use figures/figure1.pdf>
-Package pdftex.def Info: figures/figure1.pdf used on input line 159.
+Package pdftex.def Info: figures/figure1.pdf used on input line 152.
 (pdftex.def)             Requested size: 170.71652pt x 155.9099pt.
- [6 <./figures/figure2.pdf>]
-
-LaTeX Warning: Reference `eq:1' on page 7 undefined on input line 199.
-
-
-LaTeX Warning: Reference `eq:2' on page 7 undefined on input line 199.
-
-
-LaTeX Warning: Reference `eq:3' on page 7 undefined on input line 199.
-
-[7 <./figures/figure1.pdf>]
-
-LaTeX Warning: Reference `eq:6' on page 8 undefined on input line 210.
-
-
-Package natbib Warning: Citation `gis_data' on page 8 undefined on input line 2
-16.
-
-
-LaTeX Warning: Reference `tab:class' on page 8 undefined on input line 216.
-
-
-Package natbib Warning: Citation `coordinates' on page 8 undefined on input lin
-e 236.
-
-[8] <figures/map_2500_cities.jpg, id=82, 610.53094pt x 468.24937pt>
+ [6 <./figures/figure2.pdf>] [7 <./figures/figure1.pdf>] [8] <figures/map_2500_
+cities.jpg, id=82, 610.53094pt x 468.24937pt>
 File: figures/map_2500_cities.jpg Graphic file (type jpg)
 
 <use figures/map_2500_cities.jpg>
-Package pdftex.def Info: figures/map_2500_cities.jpg used on input line 244.
+Package pdftex.def Info: figures/map_2500_cities.jpg used on input line 238.
 (pdftex.def)             Requested size: 301.00192pt x 230.85889pt.
-
-
-LaTeX Warning: Reference `fig:structure' on page 9 undefined on input line 254.
-
-
-<figures/source_code.png, id=83, 262.8219pt x 248.6088pt>
+ [9 <./figures/map_2500_cities.jpg>]
+<figures/source_code.png, id=86, 262.8219pt x 248.6088pt>
 File: figures/source_code.png Graphic file (type png)
 
 <use figures/source_code.png>
-Package pdftex.def Info: figures/source_code.png used on input line 258.
+Package pdftex.def Info: figures/source_code.png used on input line 252.
 (pdftex.def)             Requested size: 301.00192pt x 284.73328pt.
- [9 <./figures/map_2500_cities.jpg>]
+ [10 <./figures/source_code.png>]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 271.
 
-LaTeX Warning: Reference `eq:6' on page 10 undefined on input line 265.
-
-[10 <./figures/source_code.png>]
-
-LaTeX Warning: Reference `sec:network_simulation' on page 11 undefined on input
- line 269.
-
-
-Package natbib Warning: Citation `gaertner2010' on page 11 undefined on input l
-ine 275.
-
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 277.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [11]
-
-LaTeX Warning: Reference `sec:shortest_path' on page 12 undefined on input line
- 314.
-
-
-LaTeX Warning: Reference `fig:path' on page 12 undefined on input line 322.
-
-
-LaTeX Warning: Reference `fig:conductivity' on page 12 undefined on input line 
-322.
-
-
-LaTeX Warning: Reference `fig:path' on page 12 undefined on input line 322.
-
-
-LaTeX Warning: Reference `fig:plottrail' on page 12 undefined on input line 322
-.
-
-
-LaTeX Warning: Reference `fig:conductivity' on page 12 undefined on input line 
-324.
-
-<figures/path_railway.jpg, id=94, 472.76625pt x 389.95688pt>
+) [11] [12]
+<figures/path_railway.jpg, id=97, 472.76625pt x 389.95688pt>
 File: figures/path_railway.jpg Graphic file (type jpg)
 
 <use figures/path_railway.jpg>
-Package pdftex.def Info: figures/path_railway.jpg used on input line 332.
+Package pdftex.def Info: figures/path_railway.jpg used on input line 326.
 (pdftex.def)             Requested size: 301.00192pt x 248.28629pt.
- [12]
+
 <figures/plottrail1.pdf, id=98, 422.22823pt x 319.70332pt>
 File: figures/plottrail1.pdf Graphic file (type pdf)
 
 <use figures/plottrail1.pdf>
-Package pdftex.def Info: figures/plottrail1.pdf used on input line 339.
+Package pdftex.def Info: figures/plottrail1.pdf used on input line 333.
 (pdftex.def)             Requested size: 215.0023pt x 162.79773pt.
-
-
-LaTeX Warning: Reference `fig:path' on page 13 undefined on input line 340.
-
-
-LaTeX Warning: Reference `fig:path' on page 13 undefined on input line 340.
-
-<figures/conductivity_railway.jpg, id=99, 464.4853pt x 402.75468pt>
+ [13 <./figures/path_railway.jpg>]
+<figures/conductivity_railway.jpg, id=103, 464.4853pt x 402.75468pt>
 File: figures/conductivity_railway.jpg Graphic file (type jpg)
 
 <use figures/conductivity_railway.jpg>
 Package pdftex.def Info: figures/conductivity_railway.jpg used on input line 34
-6.
+0.
 (pdftex.def)             Requested size: 301.00192pt x 261.00696pt.
- [13 <./figures/path_railway.jpg> <./figures/plottrail1.pdf>]
-
-Package natbib Warning: Citation `bfs' on page 14 undefined on input line 351.
-
-
-LaTeX Warning: Reference `fig:path_2050' on page 14 undefined on input line 351
-.
-
-
-LaTeX Warning: Reference `fig:conductivity_2050' on page 14 undefined on input 
-line 353.
-
-<figures/path_railway_2050.jpg, id=119, 472.76625pt x 395.22656pt>
+ [14 <./figures/plottrail1.pdf> <./figures/conductivity_railway.jpg>]
+<figures/path_railway_2050.jpg, id=122, 472.76625pt x 395.22656pt>
 File: figures/path_railway_2050.jpg Graphic file (type jpg)
 
 <use figures/path_railway_2050.jpg>
-Package pdftex.def Info: figures/path_railway_2050.jpg used on input line 357.
-(pdftex.def)             Requested size: 301.00192pt x 251.64151pt.
- [14 <./figures/conductivity_railway.jpg>]
-<figures/plottrail2.pdf, id=123, 490.13103pt x 371.0386pt>
+Package pdftex.def Info: figures/path_railway_2050.jpg used on input line 352.
+(pdftex.def)             Requested size: 258.00539pt x 215.69272pt.
+ [15]
+<figures/plottrail2.pdf, id=126, 490.13103pt x 371.0386pt>
 File: figures/plottrail2.pdf Graphic file (type pdf)
 
 <use figures/plottrail2.pdf>
-Package pdftex.def Info: figures/plottrail2.pdf used on input line 364.
+Package pdftex.def Info: figures/plottrail2.pdf used on input line 359.
 (pdftex.def)             Requested size: 215.0023pt x 162.75926pt.
 
-
-LaTeX Warning: Reference `fig:path_2050' on page 15 undefined on input line 365
-.
-
-
-LaTeX Warning: Reference `fig:path_2050' on page 15 undefined on input line 365
-.
-
-<figures/conductivity_railway_2050.jpg, id=124, 474.27188pt x 368.1253pt>
+<figures/conductivity_railway_2050.jpg, id=127, 474.27188pt x 368.1253pt>
 File: figures/conductivity_railway_2050.jpg Graphic file (type jpg)
 
 <use figures/conductivity_railway_2050.jpg>
 Package pdftex.def Info: figures/conductivity_railway_2050.jpg used on input li
-ne 372.
+ne 367.
 (pdftex.def)             Requested size: 301.00192pt x 233.64462pt.
- [15 <./figures/path_railway_2050.jpg> <./figures/plottrail2.pdf>]
-
-LaTeX Warning: Reference `sec:shortest_connection' on page 16 undefined on inpu
-t line 377.
-
-
-LaTeX Warning: Reference `fig:short' on page 16 undefined on input line 377.
-
-<figures/figure3.pdf, id=143, 770.4313pt x 252.79182pt>
+ [16 <./figures/path_railway_2050.jpg> <./figures/plottrail2.pdf>]
+<figures/figure3.pdf, id=146, 770.4313pt x 252.79182pt>
 File: figures/figure3.pdf Graphic file (type pdf)
 
 <use figures/figure3.pdf>
-Package pdftex.def Info: figures/figure3.pdf used on input line 381.
+Package pdftex.def Info: figures/figure3.pdf used on input line 376.
 (pdftex.def)             Requested size: 341.43306pt x 112.03105pt.
- [16 <./figures/conductivity_railway_2050.jpg> <./figures/figure3.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
+ [17 <./figures/conductivity_railway_2050.jpg> <./figures/figure3.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
-[17] (../../code/network_simulation/main.m
+[18] (../../code/network_simulation/main.m
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 17.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlpcr.fd
@@ -1183,8 +1060,8 @@ LaTeX Font Info:    Try loading font information for TS1+pcr on input line 27.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [18])
-Overfull \hbox (99.20076pt too wide) in paragraph at lines 48--412
+) [19])
+Overfull \hbox (99.20076pt too wide) in paragraph at lines 48--407
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][] 
  []
@@ -1206,19 +1083,19 @@ Overfull \hbox (56.00032pt too wide) in paragraph at lines 37--40
 ][][][][][][][][][][] 
  []
 
-[19]
+[20]
 Overfull \hbox (23.59999pt too wide) in paragraph at lines 55--58
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][] 
  []
 
-[20]
+[21]
 Overfull \hbox (93.8007pt too wide) in paragraph at lines 90--93
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][] 
  []
 
-[21]
+[22]
 Overfull \hbox (77.60054pt too wide) in paragraph at lines 144--147
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][] 
@@ -1230,7 +1107,7 @@ Overfull \hbox (93.8007pt too wide) in paragraph at lines 175--177
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[22]) (../../code/network_simulation/loop.m
+[23]) (../../code/network_simulation/loop.m
 Overfull \hbox (72.20049pt too wide) in paragraph at lines 1--2
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][] 
@@ -1248,13 +1125,13 @@ File: omspcr.fd
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
- [23]
+ [24]
 Overfull \hbox (110.00087pt too wide) in paragraph at lines 76--79
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][] 
  []
 
-[24] [25]
+[25] [26]
 Overfull \hbox (93.8007pt too wide) in paragraph at lines 135--137
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -1278,136 +1155,142 @@ Overfull \hbox (34.4001pt too wide) in paragraph at lines 178--180
 ][][][][][][][][][][][][][][][][][][][] 
  []
 
-[26]) (../../code/network_simulation/varnum.m)
-(../../code/network_simulation/draw.m) [27]
+[27]) (../../code/network_simulation/varnum.m)
+(../../code/network_simulation/draw.m) [28]
 (../../code/network_simulation/main_analysis.m)
-(../../code/network_simulation/analysis.m [28] [29]
+(../../code/network_simulation/analysis.m [29] [30]
 Overfull \hbox (180.20158pt too wide) in paragraph at lines 74--76
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[30]
+[31]
 Overfull \hbox (23.59999pt too wide) in paragraph at lines 154--157
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[31]
+[32]
 Overfull \hbox (66.80043pt too wide) in paragraph at lines 179--182
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (../../code/short_path/shortest_path.m [32]
+) (../../code/short_path/shortest_path.m [33]
 Overfull \hbox (7.39983pt too wide) in paragraph at lines 60--62
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[33]
+[34]
 Overfull \hbox (7.39983pt too wide) in paragraph at lines 96--98
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [34] <figures/declaration.pdf, id=229, page=1, 614.295pt x 844.83629pt>
+) <figures/city_list1.jpg, id=227, 396.0396pt x 474.573pt>
+File: figures/city_list1.jpg Graphic file (type jpg)
+
+<use figures/city_list1.jpg>
+Package pdftex.def Info: figures/city_list1.jpg used on input line 463.
+(pdftex.def)             Requested size: 430.00462pt x 515.2757pt.
+ [35]
+<figures/city_list2.jpg, id=231, 397.9668pt x 473.1276pt>
+File: figures/city_list2.jpg Graphic file (type jpg)
+
+<use figures/city_list2.jpg>
+Package pdftex.def Info: figures/city_list2.jpg used on input line 468.
+(pdftex.def)             Requested size: 430.00462pt x 511.25174pt.
+ [36 <./figures/city_list1.jpg>]
+<figures/city_list3.jpg, id=235, 397.485pt x 472.6458pt>
+File: figures/city_list3.jpg Graphic file (type jpg)
+
+<use figures/city_list3.jpg>
+Package pdftex.def Info: figures/city_list3.jpg used on input line 473.
+(pdftex.def)             Requested size: 430.00462pt x 511.32971pt.
+ [37 <./figures/city_list2.jpg>]
+<figures/city_list4.jpg, id=240, 397.9668pt x 474.0912pt>
+File: figures/city_list4.jpg Graphic file (type jpg)
+
+<use figures/city_list4.jpg>
+Package pdftex.def Info: figures/city_list4.jpg used on input line 478.
+(pdftex.def)             Requested size: 430.00462pt x 512.293pt.
+ [38 <./figures/city_list3.jpg>]
+<figures/city_list5.jpg, id=244, 397.9668pt x 216.81pt>
+File: figures/city_list5.jpg Graphic file (type jpg)
+
+<use figures/city_list5.jpg>
+Package pdftex.def Info: figures/city_list5.jpg used on input line 483.
+(pdftex.def)             Requested size: 430.00462pt x 234.28032pt.
+ [39 <./figures/city_list4.jpg>] [40 <./figures/city_list5.jpg>]
+<figures/declaration.pdf, id=253, page=1, 614.295pt x 844.83629pt>
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 466.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 489.
 
 (pdftex.def)             Requested size: 614.29349pt x 844.83423pt.
 File: figures/declaration.pdf Graphic file (type pdf)
  <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 466.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 489.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 466.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 489.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
  <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 466.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 489.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
 File: figures/declaration.pdf Graphic file (type pdf)
 
 <use figures/declaration.pdf, page 1>
-Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 466.
+Package pdftex.def Info: figures/declaration.pdf, page1 used on input line 489.
 
 (pdftex.def)             Requested size: 578.59967pt x 795.74474pt.
- [35 <./figures/declaration.pdf>]
+ [41 <./figures/declaration.pdf>]
 (./reportTemplate.bbl
-Overfull \hbox (9.9465pt too wide) in paragraph at lines 4--9
+Overfull \hbox (16.87413pt too wide) in paragraph at lines 4--9
 \OT1/cmr/m/n/12 http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/
 data/01.html,
  []
 
-)
-
-Package natbib Warning: There were undefined citations.
-
-[36] (./reportTemplate.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-
-./reportTemplate.aux:89: Package natbib Error: Bibliography not compatible with
- author-year citations.
-(natbib)                Press <return> to continue in numerical citation style.
-
-
-See the natbib package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.89 ...mand\NAT@force@numbers{}\NAT@force@numbers
-                                                  
-? 
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [42] (./reportTemplate.aux) ) 
 Here is how much of TeX's memory you used:
- 9292 strings out of 493629
- 130335 string characters out of 3143323
- 274582 words of memory out of 3000000
- 12354 multiletter control sequences out of 15000+200000
+ 9317 strings out of 493629
+ 130940 string characters out of 3143323
+ 274940 words of memory out of 3000000
+ 12374 multiletter control sequences out of 15000+200000
  17808 words of font info for 68 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  54i,18n,51p,1786b,1654s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
-exlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/tex
-live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texl
-ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
-e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive
-/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
-011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2011/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2011/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts
-/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
-ype1/urw/courier/ucrr8a.pfb>
-Output written on reportTemplate.pdf (36 pages, 6366297 bytes).
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dv
+ips/base/8r.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/cm-super/cm
+-super-ts1.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
+pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
+sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/lo
+cal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
+/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on reportTemplate.pdf (42 pages, 7425822 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
+ 335 PDF objects out of 1000 (max. 8388607)
+ 223 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
