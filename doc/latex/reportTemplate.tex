@@ -240,7 +240,7 @@ To compare the simulated results with the actual Swiss rail network, different t
 	\label{fig:map_cities}
 \end{figure}
 
-
+\pagebreak
 \subsection{MATLAB}
 
 \subsubsection{Swiss Rail Network Simulation}
@@ -308,7 +308,7 @@ end
 At the end the output is a numerated path, which can be used to calculate the track length or to use a backtracking algorithm for getting the path in the output matrix B. The whole program is attached to the appendix\,\ref{sec:shortest_path}.
 
 
-
+\pagebreak
 \section{Simulation Results and Discussion}
 \label{sec:results}
 All the simulations are ran with the same parameters and with a cell size of 2500m.
@@ -341,7 +341,7 @@ For verifying the result this first simulation rans twice, each time with the sa
 	\caption{Simulated conductivity of Physarum polycephalum and the actual Swiss rail network}
 	\label{fig:conductivity}
 \end{figure}
-
+\pagebreak
 To answer the second main question, a second simulation was started. This time, each city has its own number of inhabitants corresponding to the assumed population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappears in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation iterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation.
 To answer the second main question, a second simulation is ran. This time, each city has its own number of inhabitants corresponding to the assumend population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappear in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation itterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation. The developing of the overall path length is in both simulation equal. The different length at the beginning is caused of the normalization to the end length.
 

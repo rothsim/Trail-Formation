@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.21)  14 DEC 2012 16:08
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.21)  14 DEC 2012 21:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1261,7 +1261,7 @@ data/01.html,
 Here is how much of TeX's memory you used:
  9317 strings out of 493629
  130940 string characters out of 3143323
- 274940 words of memory out of 3000000
+ 273940 words of memory out of 3000000
  12374 multiletter control sequences out of 15000+200000
  17808 words of font info for 68 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
@@ -1287,7 +1287,7 @@ al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
 /texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/
 texlive/2011/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on reportTemplate.pdf (42 pages, 7425822 bytes).
+Output written on reportTemplate.pdf (42 pages, 7425740 bytes).
 PDF statistics:
  335 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams
