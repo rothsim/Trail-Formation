@@ -96,7 +96,7 @@
 \section{Abstract}
 \label{sec:abstract}
 
-The process of continuous urbanization is noticeable in Switzerland like in the most other countries.\footnote[1]{see the autumn sunday lectures at ETH Science City (Die Stadt der Zukunft - die Zukunft der Stadt)} Besides the benefits of combining educational, medical, cultural and industrial centers in a small are, there are also some problems arising. The cities are growing, whereupon this growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores its environment with a relatively continuous foraging margin. It is forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. 
+The process of continuous urbanization is noticeable in Switzerland like in the most other countries.\footnote[1]{see the autumn sunday lectures at ETH Science City (Die Stadt der Zukunft - die Zukunft der Stadt)} Besides the benefits of combining educational, medical, cultural and industrial centers in a small area, there are also some problems arising. The cities are growing, whereupon this growth in population causes an increasing use of the public transport system, which has to be adapted to the new conditions. The main goal of this project is the simulation of the Swiss rail network depending on population growth. The network is simulated with a biological inspired model based on Physarum polycephalum. This slime mold is a large single-celled amoeboid organism that forages for food sources. To maximize the searched area, it explores its environment with a relatively continuous foraging margin. It is forming different junctions and nodes to reduce the overall length of the connecting network \cite{network_tokyo}. This principle is adapted to the main railroads in Switzerland. 
 
 
 \section{Individual contributions}
@@ -118,13 +118,13 @@ We assume, that the rail network is developed in a way that the connections betw
 	\item Are there any new built or destroyed connections in the network because of the future population growth?
 \end{enumerate}
 
-To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geographic data from geodata.ethz.ch~\cite{gis_data} are used. This data are processed with \textit{ArcGis 10.1} to get the basis for the simulation.
+To answer these questions, the results of the simulations are compared with the Swiss rail network. For this comparison geographic data from geodata.ethz.ch~\cite{gis_data} are used. This data were processed with \textit{ArcGis 10.1} to get the basis for the simulation.
 
-Cities are choosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railaway station. Additional to these some cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
+Cities were chosen based on the numbers of inhabitants (more than 10000) in 2011 and the presence of a railway station. Additional to these ones some other cities with less than 10000 inhabitants are added because of actual importance for the Swiss rail network\,\cite{bfs}. ~\\
 ~\\
 To answer the second question, we are going to manipulate parameters in Physarum network, like described  in \ref{sec:matlab}.\\
 ~\\
-We expect that the most efficient network created by the simulation is a good approximation of the actual Swiss railroad network. We also expect that the network will not change even when the population is growing because a network changes the most at the beginning of developing. And the Swiss railroad network reaches the end of development already.
+We expect that the most efficient network created by the simulation is a good approximation of the actual Swiss railroad network. We also expect that the network will not change even when the population is growing, because the network shows its major changes at the beginning of the development. And the Swiss railroad network reaches the end of development already.
 
 
 
@@ -132,7 +132,7 @@ We expect that the most efficient network created by the simulation is a good ap
 \section{Description of the Model}
 \label{sec:description}
 
-The model is inspired of the Physarum polycephalum and the way this single-celled fungus searching for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
+The model is inspired by the Physarum polycephalum and the way this single-celled fungus searches for food. The organism have been subjected to successive rounds of evolutionary selection and have found an appropriate balance between efficiency, cost and resilience. The plasmodium contains a network of tubes, which enables chemical signals and nutrients to circulate through the organism. If some of the tubes have found food sources, this implies a positive feedback to the system. This tubes are getting thicker so the flux of nutrients increase. Other tubes which do not connect to food sources are shrinking and tend to disappear, because there is no flux available. Experiments showed two empirical rules. \textbf{1)} Tubes with no connection to a source disappear and \textbf{2)} if there are two tubes connecting the same source, the longer one disappears. This led to useful approaches to problem-solving like optimization of railroad systems or networks in general.~\\
 ~\\
 The mathematical model is based on \textit{Physarum solver: A biologically inspired method of road-network navigation} \cite{network_model}. Figure \ref{fig:schema} shows the concept of the mathematical model. There are different nodes. The first two nodes corresponding to the food sources ($N_1$ and $N_2$) and other nodes ($N_3$, $N_4$ ... $N_j$). The junction between the node $N_i$ and $N_j$ is denoted as $M_{ij}$. In the model we connect the single nodes with circular tubes and want to measure their inner flux (Figure \ref{fig:fluidd}). Therefore the fluid dynamics prepare us with the law of Hagen-Poiseuille, which allows us to calculate the flux from the difference in pressure, the tube length and some constants. Starting from the fluid velocity in a cylindric tube \cite{kirb2010}:
 \begin{figure}[H]
@@ -157,7 +157,7 @@ Q_{ij}=\frac{D_{ij}}{L_{ij}}\Delta p_{ij}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6cm]{figures/figure1}
-	\caption{\textbf{a)} Concept of the mathematical model with a source and sink node. The distance between the given nodes is a constant $d$. The centered node is not reachable. \textbf{b)} Any square represents a node with red sources, yellow transport junctions (cyan is not used) and not reachable blue terrain.}
+	\caption{\textbf{a)} Concept of the mathematical model with a source and sink node. The distance between the given nodes is a constant $d$. The centered node is not reachable.}
 	\label{fig:schema}
 \end{figure}
 
@@ -175,14 +175,14 @@ By considering Kirchhoff's law at each node, there is:
 	\sum_{i} Q_{ij}=0 \,\,\,\, \mathrm{if} \left(j\ne 1,2\right)
 \end{equation}
 
-$N_1$ is assumed as a source node and $N_2$ as a sink and $I_0$ represent the flux from the source node and is in this model constant. It follows:
+$N_1$ is assumed to act as a source node and $N_2$ as a sink and $I_0$ represents the flux from the source node and is in this model constant. It follows:
 
 \begin{equation}
 	\label{eq:3}
 	\sum_{i} Q_{i1}+I_0=0, \,\,\,\, \sum_{i} Q_{i2}-I_0=0
 \end{equation}
 
-To describe the thickness of the junctions we assumed that the conductivity $D_{ij}$ changes in time according to the flux $Q_{ij}$:
+To describe the thickness of the junctions we assume that the conductivity $D_{ij}$ changes in time according to the flux $Q_{ij}$:
 
 \begin{equation}
 	\label{eq:4}
@@ -207,13 +207,13 @@ The network Poisson equation for the pressure is derived from the equations (\re
 										\end{cases}
 \end{equation}
 
-All $p_i$'s can be determined by solving the equation system (\ref{eq:6}) when setting $p_2=0$ as a basic pressure level. With this also each $Q_{ij}$ is obtained. They are definend by the $D_{ij}$'s and $L_{ij}$'s  at each time step. Conductivity is closely related to the thickness of the junctions and so when a conductivity of a junction is zero, it disappears. The nodes $N_1$ and $N_2$ are randomly choosen for each time step.
+All variables $p_i$ can be determined by solving the equation system (\ref{eq:6}) when setting $p_2=0$ as a basic pressure level. With this assumption also each $Q_{ij}$ is obtained. They are defined by the variables $D_{ij}$ and $L_{ij}$  at each time step. Conductivity is closely related to the thickness of the junctions and so when a conductivity of a junction is zero, it disappears. The nodes $N_1$ and $N_2$ were randomly chosen at each time step.
 
 \section{Implementation}
 \subsection{ArcGis}
 \label{sec:arcgis}
 
-To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_data} are processed with \textit{ArcGis\,10.1}. Therefor the rasterdata are distinguished in different classes as in Table\,\ref{tab:class} are described.
+To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_data} are processed with \textit{ArcGis\,10.1}. Therefor the raster data were distinguished in different classes as described in Table \ref{tab:class}.
 
 \begin{table}[H]
 	\centering
@@ -233,7 +233,7 @@ To get the basis matrix for the simulation, Swiss geographic data\,\cite{gis_dat
 \label{tab:class}
 \end{table}
 
-All the geographic data are in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considerated in the simulation. Then all the choosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city are searched and a buffer of 2500m is layed on them. In this case no city will disappear when the vectordata get converted to rasterdata with a cellsize of 2500m. So after converting in rasterdata with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
+All the geographic data are given in vector format. So all lakes and the foreign countries can be erased. It would be possible to erase more types of covering (eg. rivers, rocks) where a train can not ride. The slope is in this case also neglected. So the mountains are not considered in the simulation. Then all the chosen cities are imported to \textit{ArcGis}. Therefor the coordinates (Y,X)\,\cite{coordinates} for each city were searched and a buffer of 2500m was laid on them. In this case no city will disappear when the vector data get converted to raster data with a cell size of 2500m. So after converting in raster data with the classes above, the basis matrix is exported as ASCII-File which can now used in MATLAB as simulation surface.
 
 To compare the simulated results with the actual Swiss rail network, different types of railroads are neglected. Therefor every tunnel and every rail road which is not in use are not shown.
 
@@ -251,7 +251,7 @@ To compare the simulated results with the actual Swiss rail network, different t
 
 \subsubsection{Swiss Rail Network Simulation}
 
-To simulate the Swiss rail network a cellular automata approach with a von Neumann neighbourhood is used in this project because of the raster property of the model and the geogaphic data. This means, the cities are fixed nodes and all free land is populated with junctions. During the simulation junction cells with low conductivity are changed to free land. The basic structure of the network simulation is described in Figure \ref{fig:structure}.
+To simulate the Swiss rail network a cellular automata approach with a von Neumann neighborhood is used in this project because of the raster property of the model and the geographic data. This means, the cities are fixed nodes and all free land is populated with junctions. During the simulation junction cells with low conductivity are changed to free land. The basic structure of the network simulation is described in Figure \ref{fig:structure}.
 
 \begin{figure}[H]
 	\centering
@@ -260,11 +260,11 @@ To simulate the Swiss rail network a cellular automata approach with a von Neuma
 	\label{fig:structure}
 \end{figure}
 
-The simulation can be separated in two tasks, first the computation of data and second the analysis of data. Because of the long duration of one simulation and the lack of a break condition, owning to quasi-stationary conditions, the two task are run separatly.
+The simulation can be separated in two tasks, first the computation of data and second the analysis of data. Because of the long duration of one simulation and the lack of a break condition, owning to quasi-stationary conditions, the two task are run separately.
 
-The \textbf{main.m} script holds all necessary informations like parameters, constants, folder and file paths to run the simulation. A backup function is implemented, which can be turned on an off, because of program crashes during testing. The three input files geodata.txt, population.txt and growth.txt, which have to be in an appropriate form without header row, are used to run the simulation. All input data are processed to input variables for the main loop in the \textbf{initial.m} function. This function initializes the folder structure of the simulation, converts the input data, restores the backup if turned on and passes all the data to the main loop. The main tasks of the \textbf{loop.m} function are to compute the linear equation system (equation \ref{eq:6}) and to solve the equations. For the equation system a index for every node and junction cell has to be computed. Due to performance loss by using the built in sub2ind MATLAB function the \textbf{varnum.m} function is implemented, which returns the index from a cell depending on the coordinates. After solving the linear equation system the new conductivities and an updated path can be computed. Because of the machine precision (eps) a junction cell already disappears before the conductivity is zero. This is implemented after noticing this behaviour in program tests. The simulation of the Swiss rail network needs a lot of time depending on the size of the input data, so a output file is implemented to control the progress and already computed results. To make a decision about the ending of the simulation a visual break conditions is implemented to see how far the network is. This picture is saved by the \textbf{draw.m} function and displays the actual network.
+The \textbf{main.m} script holds all necessary informations like parameters, constants, folder and file paths to run the simulation. A backup function is implemented, which can be turned on an off, because of program crashes during testing. The three input files geodata.txt, population.txt and growth.txt, which have to be in an appropriate form without header row, are used to run the simulation. All input data are processed to input variables for the main loop in the \textbf{initial.m} function. This function initializes the folder structure of the simulation, converts the input data, restores the backup if turned on and passes all the data to the main loop. The main tasks of the \textbf{loop.m} function are to compute the linear equation system (equation \ref{eq:6}) and to solve the equations. For the equation system a index for every node and junction cell has to be computed. Due to performance loss by using the built in sub2ind MATLAB function the \textbf{varnum.m} function is implemented, which returns the index from a cell depending on the coordinates. After solving the linear equation system the new conductivities and an updated path can be computed. Because of the machine precision (eps) a junction cell already disappears before the conductivity is zero. This is implemented after noticing this behavior in program tests. The simulation of the Swiss rail network needs a lot of time depending on the size of the input data, so a output file is implemented to control the progress and already computed results. To make a decision about the ending of the simulation a visual break conditions is implemented to see how far the network is. This picture is saved by the \textbf{draw.m} function and displays the actual network.
 
-The \textbf{main\_analysis.m} script contains all the variables to compute the final simulation results, which are computed in the \textbf{analysis.m} function. The final network and overall conductivity is converted to ASCII files, which are used to compare the different scenarios in \textit{ArcGIS}. To analyse the development of the path length over time these two variables are stored in vectors to be plotted afterwards.
+The \textbf{main\_analysis.m} script contains all the variables to compute the final simulation results, which are computed in the \textbf{analysis.m} function. The final network and overall conductivity is converted to ASCII files, which are used to compare the different scenarios in \textit{ArcGIS}. To analyze the development of the path length over time these two variables are stored in vectors to be plotted afterwards.
 
 The whole program is attached to the appendix\,\ref{sec:network_simulation}.
 
@@ -280,7 +280,7 @@ function [B,short_length] = shortest_path(A,points,neigh)
 
 \null
 
-By calling the function with the necessary arguments a matrix B is got, which contains the given map, without citites or earlier computed ways, but with the drawn shortest path. The shortest path length \textbf{int} is a second output argument of the function. The algorithm explained in a nutshell can be described with the following words: After cleaning the computed matrix from cities and ways, the start entry is coded with two. As a result the matrix contains only zeros (ghostland), ones (free land) and the start entry two. The algorithm iterats over the whole matrix entries and continues in the loop. If the entry is not one, the algorithm jumps to the next cell:
+By calling the function with the necessary arguments a matrix B is generated, which contains the given map, without cities or earlier computed ways, but with the drawn shortest path. The shortest path length \textbf{int} is a second output argument of the function. The algorithm explained in a nutshell can be described with the following words: After cleaning the computed matrix from cities and ways, the start entry is coded with two. As a result the matrix contains only zeros (ghostland), ones (free land) and the start entry two. The algorithm iterates over the whole matrix entries and continues in the loop. If the entry is not one, the algorithm jumps to the next cell:
 
 \begin{lstlisting}
 if B(k,l) ~= 1
@@ -317,13 +317,13 @@ At the end the output is a numerated path, which can be used to calculate the tr
 
 \section{Simulation Results and Discussion}
 \label{sec:results}
-All the simulations are ran with the same parameters and with a cellsize of 2500m.
+All the simulations are ran with the same parameters and with a cell size of 2500m.
 
-In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} are shown the results of the first MATLAB simulation and the actual rail network. In this simulation is assumed that every city has an equal number of inhabitants. The choosen path is in Figure\,\ref{fig:path} ploted. Under consideration of the choosen cities and the neglected slope this simulated path is a good approximation of the real rail network. The plot in Figure \,\ref{fig:plottrail} showes the developement of the overall path length over time. At first the function is on a constant level and then the length decreases in an exponential way. With more time steps,  the function has to itterate over less cells and so less time steps are needed to proceed. Around time step 40 the simulation tries to get in a stady-state but a little change prevents it reaching an equilibrium.
+In Figure\,\ref{fig:path} and Figure\,\ref{fig:conductivity} one can see the results of the first MATLAB simulation and the actual rail network. In this simulation the assumption made, is that every city has an equal number of inhabitants. The chosen path is shown in Figure\,\ref{fig:path}. Under consideration of the chosen cities and the neglected slope this simulated path is a good approximation of the real rail network. The plot in Figure \,\ref{fig:plottrail} shows the development of the overall path length over time. At first the function is on a constant level and then the length decreases in an exponential way. With more time steps,  the function has to iterate over less cells and so less time steps are needed to proceed. Around time step 40 the simulation tries to get in a steady state but small perturbations prevents it reaching an equilibrium.
 
 In Figure\,\ref{fig:conductivity} is shown the conductivity which goes along with this simulated path. It describes which line is used the most (e.i. Bern-Solothurn-Sursee-Lucern-Zug-Zurich).
 
-This first simulation is ran twice, each time with the same result.
+For verifying the result this first simulation rans twice, each time with the same result, what can be expected from the deterministic algorithm.
 
 
 
@@ -337,7 +337,7 @@ This first simulation is ran twice, each time with the same result.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/plottrail1}
-	\caption{Developement of the overall path length according to Figure\,\ref{fig:path}; path length in normalized numbers of cells containing slime mold}
+	\caption{Development of the overall path length according to Figure\,\ref{fig:path}; path length in normalized numbers (to the value of convergence) of cells containing slime mold}
 	\label{fig:plottrail}
 \end{figure}
 
@@ -348,7 +348,7 @@ This first simulation is ran twice, each time with the same result.
 	\label{fig:conductivity}
 \end{figure}
 
-To answer the second main question, a second simulation is ran. This time, each city has its own number of inhabitants corresponding to the assumend population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappear in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation itterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation.
+To answer the second main question, a second simulation was started. This time, each city has its own number of inhabitants corresponding to the assumed population in 2050 calculated with a linear growth\,\cite{bfs}. The result is shown in Figure\,\ref{fig:path_2050}. Comparing to the actual path there are just slight differences. Except of the junction between St.\,Moritz-Bellinzona and Bern-Solothurn, which disappears in the simulation of 2050. This could be explained with the low population of both of these cities (St.\,Moritz/Bellinzona) and in this case the connection gets less important. The disappeared connection between Bern and Solothurn can be explained with different numbers of time steps over which the simulation iterates (first simulation: 5973 time steps, second simulation: 7318 time steps). With more time steps the junction would also disappear in the first simulation.
 
 Comparing the plots of the conductivity there are just slight differences too. In general, the conductivity is lower than in the first simulation. That depends on lower initial flux caused by the different populations, which is higher in the first simulation. The line with the highest conductivity is longer in the simulation of 2050 than in the first simulation as shown in Figure\,\ref{fig:conductivity_2050}. The most frequently used line goes now from Lausanne over Bern, Solothurn, Lucern, Zug to Zurich. This leads to the conclusion that the Swiss rail network is not going to change in the future.
 
@@ -361,8 +361,8 @@ Comparing the plots of the conductivity there are just slight differences too. I
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/test}
-	\caption{Developement of the overall path length according to Figure\,\ref{fig:path_2050}; path length in normalized numbers of cells containing slime mold}
+	\includegraphics[width=0.5\textwidth]{figures/plottrail2}
+	\caption{Development of the overall path length according to Figure\,\ref{fig:path_2050}; path length in normalized numbers (to the value of convergence) of cells containing slime mold}
 	\label{fig:plottrail_2050}
 \end{figure}
 
@@ -379,7 +379,7 @@ The question comes up, if the simulated path of the slime mold is the shortest c
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/figure3}
-	\caption{\textbf{a)} Simulated path length from the Physarum simulation code. \textbf{b)} Zooming into the red square is on the left hand side the Physarum simulation path length, compared to the right hand side computed shortest path length shown.}
+	\caption{\textbf{a)} Simulated path length from the Physarum simulation code. \textbf{b)} Zooming into the red square is on the left hand side the Physarum simulation path length, compared to the right hand side computed shortest path length expample.}
 	\label{fig:short}
 \end{figure}
 \label{sec:matlab}
@@ -395,10 +395,9 @@ The main goal of this project was to simulate the Swiss rail network based on a 
 \item Depending on the population growth there are built no new connections but one is disappeared.
 \end{enumerate}
 
-The model based on Physarum polycephalum leads in general to a good approximation of a rail network. But the utilization of a rail network does not only depend on the number of people living in a city. In this project, this is the only parameter which the model uses to decide which connection is efficient. There are also other impacts which make a specific connection more efficient or more attractiv to use. For example how fast can a train ride and following this how long lasts a journey. Especially in the Alps the number of tourists and the touristic villages with less inhabitants are an important factor.\\
+The model based on Physarum polycephalum leads in general to a good approximation of a rail network. But the utilization of a rail network does not only depend on the number of people living in a city. In this project, this is the only parameter which the model uses to decide which connection is efficient. There are also other impacts which make a specific connection more efficient or more attractive to use. For example how fast can a train ride and following this how long lasts a journey. Especially in the Alps the number of tourists and the touristic villages with less inhabitants are an important factor.\\
 
-There are different points to continue with this project or maybe to enlarge it in the future. With more time and hardware capacity it is possible to do a lot more simulations to find the best set of parameters. Another interessting point would be to simulate the rail network with more restrictions like the slope or other surface coverings. It is also possible to simulate different population growth scenarios to see the consequences in the resulting rail network. Another way to use the model is to preset the actual rail network and to simulate the utilization of the different rail lines.
-Further could the international connections be considered.
+There are different points to continue with this project or maybe to enlarge it in the future. With more time and hardware capacity it is possible to do a lot more simulations to find the best set of parameters. Another interesting point would be to simulate the rail network with more restrictions like the slope or other surface coverings. It is also possible to simulate different population growth scenarios to see the consequences in the resulting rail network. Another way to use the model is to preset the actual rail network and to simulate the utilization of the different rail lines. Because each city has another impact on the whole network (e.g. considering international connections like air ports ore border crossings) one can define weighing factors, which respect more parameters, than the population.
 
 
 \newpage
